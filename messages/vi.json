@@ -1,0 +1,13 @@
+{
+    "global": {
+        "vi": "Vietnamese",
+        "en": "English",
+        "title": "Xin chao"
+    },
+    "header": {
+        "login": "Đăng Nhập",
+        "signup": "Đăng Ký",
+        "purchase_support": "Hỗ trợ mua hàng"
+    }
+
+}
