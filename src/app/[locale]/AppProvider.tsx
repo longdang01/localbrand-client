@@ -1,6 +1,6 @@
 'use client';
 
-import { queryClient } from '@/libs/react-query';
+import { queryClient } from '@/lib/react-query';
 import { useColorState } from '@/stores/color.store';
 import { ConfigProvider } from 'antd';
 import { QueryClientProvider } from 'react-query';

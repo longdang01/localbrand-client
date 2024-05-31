@@ -25,7 +25,7 @@ const LanguagesSwitcher = () => {
   const t = useTranslations('global');
   const router = useRouter();
   const locale = useLocale();
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const languages: MenuProps['items'] = [
     {
@@ -68,23 +68,23 @@ const LanguagesSwitcher = () => {
             onClick={(e) => e.preventDefault()}
             className={styles.locale}
           >
+            {
+              (
+                languages.find(
+                  (item) => item?.key === locale,
+                ) as LanguageSwitcherProps
+              )?.icon
+            }
+            <Typography.Text className={styles.title}>
               {
                 (
                   languages.find(
                     (item) => item?.key === locale,
                   ) as LanguageSwitcherProps
-                )?.icon
+                )?.label
               }
-              <Typography.Text className={styles.title}>
-                {
-                  (
-                    languages.find(
-                      (item) => item?.key === locale,
-                    ) as LanguageSwitcherProps
-                  )?.label
-                }
-              </Typography.Text>
-              <FaAngleDown />
+            </Typography.Text>
+            <FaAngleDown />
           </Typography.Link>
         </Dropdown>
       </ConfigProvider>
