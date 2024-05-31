@@ -1,19 +1,61 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import styles from '../Auth.module.scss';
-import { Button, Col, Flex, Form, Input, Row } from 'antd';
+import { Button, Col, Flex, Form, Input, Row, notification } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { RULES_FORM } from '@/utils/validator';
 import { useForm } from 'antd/es/form/Form';
 import Image from 'next/image';
 import authPicture from '@/assets/images/auth/auth.png';
+import { useResetPassword } from '@/loaders/auth.loader';
+import { logout } from '@/services/user.service';
+import { LOGIN_PATH } from '@/paths';
+import { useParams, useRouter } from 'next/navigation';
 
 const ResetPassword = () => {
   const t = useTranslations();
   const [form] = useForm();
+  const locale = useLocale();
+  const router = useRouter();
+  const params = useParams();
 
-  const handleSubmit = () => {};
+  const resetPassword = useResetPassword({
+    config: {
+      onSuccess: async () => {
+        notification.success({
+          message: t('messages.reset_password_success'),
+        });
+        const userStorage = localStorage.getItem('user');
+        if (userStorage) await logout();
+
+        localStorage.clear();
+        router.push(`/${locale}/${LOGIN_PATH}`);
+      },
+      onError: (error) => {
+        notification.error({
+          message: error?.response?.data?.detail || error?.message,
+        });
+      },
+    },
+  });
+
+  const handleSubmit = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        resetPassword.mutate({
+          ...values,
+          id: params?.id,
+          token: params?.token,
+        });
+      })
+      .catch(() => {
+        notification.warning({
+          message: t('messages.validate_form'),
+        });
+      });
+  };
 
   return (
     <>
@@ -74,7 +116,7 @@ const ResetPassword = () => {
                     <Button
                       className={styles.btnSubmit}
                       onClick={handleSubmit}
-                      // loading={reset_password?.isLoading}
+                      loading={resetPassword?.isLoading}
                     >
                       {t('auth.reset_password.title')}
                     </Button>

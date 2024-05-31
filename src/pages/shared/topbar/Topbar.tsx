@@ -7,7 +7,7 @@ import { BiSupport } from 'react-icons/bi';
 import { RiLoginCircleLine } from 'react-icons/ri';
 import { LuUserPlus2 } from 'react-icons/lu';
 import { useTranslations } from 'next-intl';
-import { LOGIN_PATH } from '@/paths';
+import { LOGIN_PATH, SIGNUP_PATH } from '@/paths';
 import Link from 'next/link';
 
 interface Props {
@@ -42,12 +42,12 @@ const Topbar = ({ locale }: Props) => {
                 </Link>
               </Tooltip>
               <Tooltip title={t('signup')} placement="bottomRight">
-                <Typography.Link>
+                <Link href={`/${locale}/${SIGNUP_PATH}`}>
                   <Flex align="center" gap={4}>
                     <LuUserPlus2 />
                     <Typography.Text>{t('signup')}</Typography.Text>
                   </Flex>
-                </Typography.Link>
+                </Link>
               </Tooltip>
             </Space>
           </Flex>

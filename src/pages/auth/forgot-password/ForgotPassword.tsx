@@ -1,19 +1,52 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import styles from '../Auth.module.scss';
-import { Button, Col, Flex, Form, Input, Row } from 'antd';
+import { Button, Col, Flex, Form, Input, Row, notification } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { RULES_FORM } from '@/utils/validator';
 import { useForm } from 'antd/es/form/Form';
 import Image from 'next/image';
 import authPicture from '@/assets/images/auth/auth.png';
+import { useForgotPassword } from '@/loaders/auth.loader';
+import { useRouter } from 'next/navigation';
+import { LOGIN_PATH } from '@/paths';
 
 const ForgotPassword = () => {
   const t = useTranslations();
   const [form] = useForm();
+  const locale = useLocale();
+  const router = useRouter();
 
-  const handleSubmit = () => {};
+  const forgotPassword = useForgotPassword({
+    config: {
+      onSuccess: (_) => {
+        notification.success({
+          message: t('messages.request_success'),
+        });
+
+        setTimeout(() => {
+          router.push(`/${locale}/${LOGIN_PATH}`);
+        }, 300);
+      },
+      onError: (error) => {
+        notification.error({
+          message: error?.response?.data?.detail || error?.message,
+        });
+      },
+    },
+  });
+
+  const handleSubmit = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        forgotPassword.mutate({ ...values, locale: locale });
+      })
+      .catch(() => {
+        notification.warning({ message: t('messages.validate_form') });
+      });
+  };
 
   return (
     <>
@@ -42,7 +75,7 @@ const ForgotPassword = () => {
                     <Button
                       className={styles.btnSubmit}
                       onClick={handleSubmit}
-                      // loading={login?.isLoading}
+                      loading={forgotPassword?.isLoading}
                     >
                       {t('auth.forgot_password.title')}
                     </Button>

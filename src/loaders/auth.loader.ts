@@ -9,6 +9,7 @@ import {
   getMe,
   login,
   resetPassword,
+  signup,
 } from '@/services/user.service';
 import { AxiosRequestConfig } from 'axios';
 import { useMutation, useQuery } from 'react-query';
@@ -29,6 +30,20 @@ export const useLogin = ({
     onSuccess: () => {},
     ...config,
     mutationFn: login,
+  });
+};
+
+export const useSignup = ({
+  config,
+}: {
+  config?: MutationConfig<typeof signup>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: signup,
   });
 };
 

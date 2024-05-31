@@ -4,6 +4,7 @@ import {
   ForgotPasswordProps,
   ResetPasswordProps,
   UserLoginProps,
+  UserSignupProps,
 } from '@/models/auth';
 import { UserProfile } from '@/models/users';
 
@@ -16,6 +17,11 @@ export const getMe = async () => {
 
 export const login = async (request: UserLoginProps) => {
   const response = await apiClient?.post(`${prefix}/login`, request);
+  return response.data;
+};
+
+export const signup = async (request: UserSignupProps) => {
+  const response = await apiClient?.post(`${prefix}/register`, request);
   return response.data;
 };
 

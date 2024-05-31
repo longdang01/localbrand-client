@@ -2,20 +2,61 @@
 
 import { useTranslations } from 'next-intl';
 import styles from '../Auth.module.scss';
-import { Button, Col, Flex, Form, Input, Row, Typography } from 'antd';
+import {
+  Button,
+  Col,
+  Flex,
+  Form,
+  Input,
+  Row,
+  Typography,
+  notification,
+} from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { RULES_FORM } from '@/utils/validator';
 import Link from 'next/link';
-import { FORGOT_PASSWORD_PATH, LOGIN_PATH } from '@/paths';
+import { LOGIN_PATH } from '@/paths';
 import { useForm } from 'antd/es/form/Form';
 import Image from 'next/image';
 import authPicture from '@/assets/images/auth/auth.png';
+import { useSignup } from '@/loaders/auth.loader';
 
 const Signup = () => {
   const t = useTranslations();
   const [form] = useForm();
 
-  const handleSubmit = () => {};
+  const signup = useSignup({
+    config: {
+      onSuccess: (_) => {
+        notification.success({
+          message: t('messages.register_success'),
+        });
+
+        form.resetFields();
+      },
+      onError: (error: any) => {
+        notification.error({
+          message: error?.message,
+        });
+      },
+    },
+  });
+
+  const handleSubmit = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        signup.mutate({
+          ...values,
+          role: 5,
+        });
+      })
+      .catch(() => {
+        notification.warning({
+          message: t('messages.validate_form'),
+        });
+      });
+  };
 
   return (
     <>
@@ -84,7 +125,7 @@ const Signup = () => {
                       </FormItem>
                       <FormItem
                         className={styles.formItem}
-                        name={'passwordConfirm'}
+                        name={'password_confirmation'}
                         dependencies={['password']}
                         rules={[
                           ...RULES_FORM.required,
@@ -117,7 +158,7 @@ const Signup = () => {
                     <Button
                       className={styles.btnSubmit}
                       onClick={handleSubmit}
-                      // loading={signup?.isLoading}
+                      loading={signup?.isLoading}
                     >
                       {t('auth.signup.title')}
                     </Button>

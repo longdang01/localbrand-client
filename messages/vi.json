@@ -99,6 +99,7 @@
     "login_success": "Đăng nhập thành công",
     "login_failure": "Đăng nhập không thành công",
     "create_success": "Thêm thành công!",
+    "register_success": "Đăng ký thành công!",
     "create_failure": "Thêm không thành công!",
     "update_success": "Cập nhật thành công!",
     "update_failure": "Cập nhật không thành công!",

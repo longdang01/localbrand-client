@@ -1,19 +1,9 @@
 'use client';
 
 import { EN, VI } from '@/constants/config';
-import { DownOutlined } from '@ant-design/icons';
-import {
-  ConfigProvider,
-  Dropdown,
-  DropdownProps,
-  Flex,
-  MenuItemProps,
-  MenuProps,
-  Space,
-  Typography,
-} from 'antd';
+import { ConfigProvider, Dropdown, MenuProps, Typography } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
-import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import { FaAngleDown } from 'react-icons/fa';
 import styles from './LanguagesSwitcher.module.scss';
 import { ENIcon, VNIcon } from '@/assets/svg/index';
 import { LanguageSwitcherProps } from '@/models/language-switcher';

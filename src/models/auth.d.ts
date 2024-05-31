@@ -6,6 +6,16 @@ export type UserLoginProps = {
   page: number;
 };
 
+export type UserSignupProps = {
+  username: string;
+  password: string;
+  password_confirmation: string;
+  email: string;
+  customerName: string;
+  phone: string;
+  role: numbe;
+};
+
 export type ChangePasswordProps = {
   username: string;
   password: string;
