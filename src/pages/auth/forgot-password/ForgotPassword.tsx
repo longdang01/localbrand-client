@@ -2,7 +2,16 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import styles from '../Auth.module.scss';
-import { Button, Col, Flex, Form, Input, Row, notification } from 'antd';
+import {
+  Button,
+  Col,
+  Flex,
+  Form,
+  Input,
+  Row,
+  Typography,
+  notification,
+} from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { RULES_FORM } from '@/utils/validator';
 import { useForm } from 'antd/es/form/Form';
@@ -52,6 +61,10 @@ const ForgotPassword = () => {
     <>
       <div className="layout-client">
         <div className={styles.container}>
+          <Typography.Title className={styles.heading}>
+            {t('auth.forgot_password.title')}
+          </Typography.Title>
+
           <Row gutter={[24, 24]}>
             <Col span={24} md={12} lg={12}>
               <div className={styles.inner}>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import styles from '../Auth.module.scss';
 import {
   Button,
@@ -23,6 +23,7 @@ import { useSignup } from '@/loaders/auth.loader';
 
 const Signup = () => {
   const t = useTranslations();
+  const locale = useLocale();
   const [form] = useForm();
 
   const signup = useSignup({
@@ -36,7 +37,7 @@ const Signup = () => {
       },
       onError: (error: any) => {
         notification.error({
-          message: error?.message,
+          message: error?.response?.data?.message,
         });
       },
     },
@@ -62,6 +63,10 @@ const Signup = () => {
     <>
       <div className="layout-client">
         <div className={styles.container}>
+          <Typography.Title className={styles.heading}>
+            {t('auth.signup.title')}
+          </Typography.Title>
+
           <Row gutter={[24, 24]}>
             <Col span={24} md={12} lg={12}>
               <div className={styles.inner}>
@@ -171,7 +176,9 @@ const Signup = () => {
                     <Typography.Text>
                       {t('auth.signup.footer')}?
                     </Typography.Text>
-                    <Link href={LOGIN_PATH}>{t('auth.login.title')}</Link>
+                    <Link href={`/${locale}/${LOGIN_PATH}`}>
+                      {t('auth.login.title')}
+                    </Link>
                   </Flex>
                 </div>
               </div>

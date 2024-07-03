@@ -28,6 +28,14 @@
       "contact": "Liên hệ",
       "cart": "Giỏ hàng",
       "search": "Tìm kiếm"
+    },
+
+    "account": {
+      "profile": "Tài khoản của bạn",
+      "order": "Theo dõi đơn hàng",
+      "address": "Địa chỉ nhận hàng",
+      "change_password": "Đổi mật khẩu",
+      "logout": "Đăng xuất"
     }
   },
   "slide": {
@@ -92,6 +100,104 @@
       "title": "Đặt lại mật khẩu",
       "new_password": "Mật khẩu mới",
       "confirm_new_password": "Nhập lại mật khẩu mới"
+    }
+  },
+  "account": {
+    "layout": {
+      "title": "Tài khoản của bạn"
+    },
+    "profile": {
+      "title": "Thông tin tài khoản",
+      "upload": "Tải lên",
+      "url": "URL",
+      "image_url_invalid": "Đường dẫn ảnh không hợp lệ",
+      "validate_form": "Bạn cần điền đầy đủ thông tin",
+      "update_success": "Cập nhật thành công!",
+      "fields": {
+        "serial": "STT",
+        "staff_name": "Nhân viên",
+        "dob": "Ngày sinh",
+        "username": "Tài khoản",
+        "password": "Mật khẩu",
+        "email": "Email",
+        "phone": "Điện thoại",
+        "address": "Địa chỉ",
+        "picture": "Ảnh",
+        "action": "Tác vụ"
+      },
+      "ok_text": "Lưu",
+      "cancel_text": "Huỷ"
+    },
+    "order": {
+      "title": "Theo dõi đơn hàng"
+    },
+    "address": {
+      "title": "Địa chỉ nhận hàng",
+      "meta_title": "Địa chỉ nhận hàng",
+      "list": "Danh sách địa chỉ nhận hàng",
+      "create": "Thêm địa chỉ nhận hàng",
+      "update": "Sửa địa chỉ nhận hàng",
+      "delete": "Xoá địa chỉ nhận hàng",
+      "delete_multi": "Xoá nhiều địa chỉ nhận hàng",
+      "refresh": "Làm mới",
+      "search_here": "Tìm kiếm tại đây",
+      "upload": "Tải lên",
+      "url": "URL",
+      "image_url_invalid": "Đường dẫn ảnh không hợp lệ",
+      "validate_form": "Bạn cần điền đầy đủ thông tin",
+      "create_success": "Thêm thành công!",
+      "update_success": "Cập nhật thành công!",
+      "delete_success": "Xoá thành công!",
+      "btn_create": "Thêm địa chỉ",
+      "place_vn": "Việt Nam",
+      "place_other": "Khác",
+      "status_default": "Mặc định",
+      "status_normal": "Thường",
+      "placeholder_vn": "Số nhà, thôn, xóm",
+      "placeholder_other": "Ghi rõ địa điểm",
+      "fields": {
+        "serial": "STT",
+        "customer": "Khách hàng",
+        "delivery_address_name": "Địa chỉ nhận hàng",
+        "consignee_name": "Người nhận",
+        "consignee_phone": "Điện thoại",
+        "place": "Khu vực",
+        "status": "Trạng thái",
+        "country": "Quốc gia",
+        "province": "Tỉnh",
+        "district": "Huyện",
+        "ward": "Xã",
+        "action": "Tác vụ"
+      },
+      "confirm_delete": "Bạn có chắc chắn muốn xoá địa chỉ nhận hàng này không?",
+      "confirm_delete_multi": "Bạn có chắc chắn muốn xoá những địa chỉ nhận hàng này không?",
+      "confirm_delete_title": "Xác nhận xoá",
+      "ok_text": "Lưu",
+      "cancel_text": "Huỷ"
+    },
+    "change_password": {
+      "title": "Đổi mật khẩu",
+      "validate_form": "Bạn cần điền đầy đủ thông tin",
+      "change_password_success": "Đổi mật khẩu thành công!",
+      "incorrect_password": "Mật khẩu không chính xác!",
+      "not_matching_password": "Mật khẩu mới không được trùng với mật khẩu cũ",
+      "error_confirm_password": "Hai mật khẩu vừa nhập không đồng nhất!",
+      "request_success": "Gửi yêu cầu thành công!",
+      "fields": {
+        "username": "Tài khoản",
+        "password": "Mật khẩu",
+        "full_name": "Họ và tên",
+        "url": "Đường dẫn",
+        "upload": "Tải lên",
+        "password_current": "Mật khẩu hiện tại",
+        "password_new": "Mật khẩu mới",
+        "password_new_confirm": "Nhập lại mật khẩu mới"
+      },
+      "ok_text": "Lưu",
+      "cancel_text": "Huỷ"
+    },
+    "logout": {
+      "title": "Đăng xuất"
     }
   },
   "messages": {

@@ -9,7 +9,7 @@ export type NavigationItem = {
   key: number | string;
   label: string;
   icon: React.ReactNode | null;
-  children: NavigationItem[];
+  children?: NavigationItem[];
   url?: string;
   roles?: (string | number)[];
 };

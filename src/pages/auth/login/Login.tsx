@@ -22,6 +22,7 @@ import authPicture from '@/assets/images/auth/auth.png';
 import storage from '@/utils/storage';
 import { useLogin } from '@/loaders/auth.loader';
 import { useRouter } from 'next/navigation';
+import { ACCESS_TOKEN, ROLE } from '@/constants/config';
 const Login = () => {
   const t = useTranslations();
   const [form] = useForm();
@@ -32,11 +33,8 @@ const Login = () => {
     config: {
       onSuccess: (response) => {
         // save to localStorage
-        storage.setStorage(
-          'access_token',
-          JSON.stringify(response?.user?.token),
-        );
-        storage.setStorage('role', JSON.stringify(response?.user?.role));
+        storage.setStorage(ACCESS_TOKEN, JSON.stringify(response?.user?.token));
+        storage.setStorage(ROLE, JSON.stringify(response?.user?.role));
 
         // notifications
         notification.success({
@@ -83,6 +81,9 @@ const Login = () => {
     <>
       <div className="layout-client">
         <div className={styles.container}>
+          <Typography.Title className={styles.heading}>
+            {t('auth.login.title')}
+          </Typography.Title>
           <Row gutter={[24, 24]}>
             <Col span={24} md={12} lg={12}>
               <div className={styles.inner}>

@@ -32,8 +32,6 @@ const Slide = () => {
     },
   });
 
-  console.log(searchSlides?.data);
-
   return (
     <>
       <section className={styles.slideContainer}>
@@ -58,7 +56,7 @@ const Slide = () => {
         >
           {searchSlides?.data?.slides?.map((slide: SlideProps) => (
             <SwiperSlide key={slide?._id}>
-              <div className={`${styles.slide}`}>
+              <div className={`${styles.slide} ${styles.overlay}`}>
                 <Image
                   className={styles.image}
                   src={slide?.picture}

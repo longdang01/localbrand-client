@@ -30,7 +30,7 @@ export default async function RootLayout({
         <AppProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <AntdStyledComponentsRegistry>
-              <Topbar locale={locale} />
+              <Topbar />
               <Header />
               {children}
               <Footer />

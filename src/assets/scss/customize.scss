@@ -94,3 +94,28 @@
     background: #000;
   }
 }
+
+.modal-custom-header {
+  .ant-modal-content {
+    padding: 0 !important;
+  }
+
+  .modal-header {
+    padding: 8px 24px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .title-header {
+      color: white;
+
+      * {
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .ant-modal-footer {
+    padding: 15px 24px !important;
+  }
+}

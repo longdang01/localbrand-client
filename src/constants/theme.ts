@@ -41,6 +41,9 @@ export const themeLightConfig: ThemeConfig = {
     Table: {
       rowExpandedBg: '#ffffff',
     },
+    Dropdown: {
+      controlHeight: 35,
+    },
   },
 };
 
