@@ -14,7 +14,7 @@ import {
   WardProps,
 } from '@/models/delivery-address';
 import TableRender from '@/pages/shared/table-render/TableRender';
-import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import {
   Button,
   Flex,
@@ -28,7 +28,7 @@ import {
 } from 'antd';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CreateDeliveryAddressModal from './components/CreateDeliveryAddressModal';
 import { useGetMe } from '@/loaders/auth.loader';
 import { REGIONS } from '@/constants/region';
@@ -65,6 +65,7 @@ const DeliveryAddress = () => {
       searchData: searchData,
       customer: currentUser?.data?.customer?._id,
     },
+    enabled: !currentUser?.isLoading,
   });
 
   const getInfoDeliveryAddress = (id: string, type: number) => {
@@ -134,14 +135,6 @@ const DeliveryAddress = () => {
       dataIndex: 'deliveryAddressName',
       render: (_, record: any) => (
         <>
-          <Tag
-            color={record.active == 1 ? 'green' : 'black'}
-            style={{ minWidth: 70 }}
-          >
-            {record.active == 1
-              ? t('address.status_default')
-              : t('address.status_normal')}
-          </Tag>
           <Typography.Text>
             {record.consigneeName},{' ' + record.consigneePhone},{' '}
             {record.country == 1
@@ -157,6 +150,25 @@ const DeliveryAddress = () => {
       sorter: {
         compare: (a: any, b: any) =>
           a?.deliveryAddressName - b?.deliveryAddressName,
+      },
+    },
+    {
+      title: t('address.fields.status'),
+      width: 100,
+      align: 'center',
+      render: (_, record: any) => {
+        return (
+          <>
+            <Tag
+              color={record.active == 1 ? 'green' : 'black'}
+              style={{ minWidth: 70 }}
+            >
+              {record.active == 1
+                ? t('address.status_default')
+                : t('address.status_normal')}
+            </Tag>
+          </>
+        );
       },
     },
     {
@@ -206,7 +218,11 @@ const DeliveryAddress = () => {
           <CreateDeliveryAddressModal />
         </Flex>
         <TableRender
-          loading={searchAddress?.isLoading || searchAddress?.isFetching}
+          loading={
+            searchAddress?.isLoading ||
+            searchAddress?.isFetching ||
+            currentUser?.isLoading
+          }
           columns={DELIVERY_ADDRESS_COLUMNS}
           data={searchAddress?.data?.deliveryAddresses}
           total={searchAddress?.data?.total}

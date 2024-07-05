@@ -30,7 +30,13 @@ body {
   * {
     // font-family: "Montserrat", sans-serif !important;
     // font-family: 'SF Pro Display', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
+  }
+
+  @media (max-width: 1471px) {
+    * {
+      font-size: 1.4rem !important;
+    }
   }
 
   label,
@@ -287,4 +293,25 @@ body {
 
 .text-danger {
   color: red;
+}
+
+.ptb-3 {
+  padding: 3rem 0;
+}
+
+.layout-content {
+  padding: 1.5rem 3rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+  min-height: 400px;
+
+  .content-title {
+    margin-bottom: 3rem;
+    font-size: 2.8rem !important;
+  }
+
+  li {
+    color: grey;
+    font-weight: 400 !important;
+  }
 }

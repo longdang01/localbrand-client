@@ -5,10 +5,22 @@ import styles from './Footer.module.scss';
 import { RiFacebookFill } from 'react-icons/ri';
 import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineTikTok } from 'react-icons/ai';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import {
+  ABOUT_CONTACT,
+  ABOUT_INTRODUCE,
+  LOGIN_PATH,
+  SIGNUP_PATH,
+  SUPPORT_FAQ,
+  SUPPORT_PRIVACY,
+  SUPPORT_PURCHASE,
+  SUPPORT_USAGE,
+} from '@/paths';
 
 const Footer = () => {
   const t = useTranslations('footer');
+  const locale = useLocale();
 
   return (
     <>
@@ -40,8 +52,12 @@ const Footer = () => {
                   {t('about.title')}
                 </Typography.Title>
                 <Flex vertical className={styles.list}>
-                  <Typography.Link>{t('about.introduction')}</Typography.Link>
-                  <Typography.Link>{t('about.contact')}</Typography.Link>
+                  <Link href={`/${locale}/${ABOUT_INTRODUCE}`}>
+                    {t('about.introduction')}
+                  </Link>
+                  <Link href={`/${locale}/${ABOUT_CONTACT}`}>
+                    {t('about.contact')}
+                  </Link>
                 </Flex>
               </Col>
               <Col span={24} md={12} lg={6}>
@@ -49,8 +65,12 @@ const Footer = () => {
                   {t('account.title')}
                 </Typography.Title>
                 <Flex vertical className={styles.list}>
-                  <Typography.Link>{t('account.login')}</Typography.Link>
-                  <Typography.Link>{t('account.signup')}</Typography.Link>
+                  <Link href={`/${locale}/${LOGIN_PATH}`}>
+                    {t('account.login')}
+                  </Link>
+                  <Link href={`/${locale}/${SIGNUP_PATH}`}>
+                    {t('account.signup')}
+                  </Link>
                 </Flex>
               </Col>
               <Col span={24} md={12} lg={6}>
@@ -58,12 +78,18 @@ const Footer = () => {
                   {t('policy.title')}
                 </Typography.Title>
                 <Flex vertical className={styles.list}>
-                  <Typography.Link>
+                  <Link href={`/${locale}/${SUPPORT_PURCHASE}`}>
                     {t('policy.purchase_support')}
-                  </Typography.Link>
-                  <Typography.Link>{t('policy.faq')}</Typography.Link>
-                  <Typography.Link>{t('policy.privacy')}</Typography.Link>
-                  <Typography.Link>{t('policy.usage')}</Typography.Link>
+                  </Link>
+                  <Link href={`/${locale}/${SUPPORT_FAQ}`}>
+                    {t('policy.faq')}
+                  </Link>
+                  <Link href={`/${locale}/${SUPPORT_PRIVACY}`}>
+                    {t('policy.privacy')}
+                  </Link>
+                  <Link href={`/${locale}/${SUPPORT_USAGE}`}>
+                    {t('policy.usage')}
+                  </Link>
                 </Flex>
               </Col>
             </Row>
@@ -72,17 +98,24 @@ const Footer = () => {
           <Divider className={styles.divider} />
 
           <Flex align="center" justify="start" className={styles.bottom}>
-            <Typography.Link className={styles.item}>
+            <Link
+              href={`/${locale}/${SUPPORT_PRIVACY}`}
+              className={styles.item}
+            >
               {t('policy.privacy')}
-            </Typography.Link>
-            <Typography.Link className={styles.item}>
+            </Link>
+            <Link href={`/${locale}/${SUPPORT_USAGE}`} className={styles.item}>
               {t('policy.usage')}
-            </Typography.Link>
+            </Link>
             <Typography.Text className={styles.item}>
               <Typography.Text>
                 © {new Date().getFullYear()}. {t('copyright')}{' '}
               </Typography.Text>
-              <Typography.Link target="_blank" href="#" className={styles.item}>
+              <Typography.Link
+                target="_blank"
+                href="#"
+                className={styles.brand}
+              >
                 FRAGILE
               </Typography.Link>
             </Typography.Text>

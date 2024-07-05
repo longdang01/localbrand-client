@@ -102,6 +102,13 @@
       "confirm_new_password": "Nhập lại mật khẩu mới"
     }
   },
+  "collection": {
+    "title": "Bộ sưu tập",
+    "title_detail": "Chi tiết bộ sưu tập",
+    "fields": {
+      "date": "Ngày phát hành"
+    }
+  },
   "account": {
     "layout": {
       "title": "Tài khoản của bạn"
@@ -129,7 +136,43 @@
       "cancel_text": "Huỷ"
     },
     "order": {
-      "title": "Theo dõi đơn hàng"
+      "title": "Theo dõi đơn hàng",
+      "search_here": "Tìm kiếm tại đây",
+      "meta_title": "Đơn hàng",
+      "list": "Danh sách đơn hàng",
+      "info": "Thông tin đơn hàng",
+      "create": "Thêm đơn hàng",
+      "update": "Sửa đơn hàng",
+      "delete": "Xoá đơn hàng",
+      "delete_multi": "Xoá nhiều đơn hàng",
+      "refresh": "Làm mới",
+      "upload": "Tải lên",
+      "url": "URL",
+      "image_url_invalid": "Đường dẫn ảnh không hợp lệ",
+      "validate_form": "Bạn cần điền đầy đủ thông tin",
+      "create_success": "Thêm thành công!",
+      "update_success": "Cập nhật thành công!",
+      "delete_success": "Xoá thành công!",
+      "cancel_success": "Huỷ thành công!",
+      "product_list": "Danh sách sản phẩm",
+      "fields": {
+        "serial": "STT",
+        "order_code": "Mã đơn hàng",
+        "order_date": "Ngày đặt",
+        "order_status": "Trạng thái đơn hàng",
+        "consignee_info": "Thông tin người nhận",
+        "payment_type": "Phương thức thanh toán",
+        "payment_status": "Trạng thái thanh toán",
+        "total": "Thành tiền",
+        "total_product": "Tổng tiền hàng",
+        "transport_fee": "Phí vận chuyển",
+        "action": "Tác vụ"
+      },
+      "confirm_delete": "Bạn có chắc chắn muốn xoá đơn hàng này không?",
+      "confirm_delete_multi": "Bạn có chắc chắn muốn xoá những đơn hàng này không?",
+      "confirm_delete_title": "Xác nhận xoá",
+      "ok_text": "Lưu",
+      "cancel_text": "Huỷ"
     },
     "address": {
       "title": "Địa chỉ nhận hàng",
@@ -197,7 +240,91 @@
       "cancel_text": "Huỷ"
     },
     "logout": {
-      "title": "Đăng xuất"
+      "title": "Đăng xuất",
+      "question": "Bạn có chắc chắn muốn đăng xuất hay không?",
+      "ok": "Đăng xuất",
+      "cancel": "Huỷ"
+    }
+  },
+  "support": {
+    "layout": {
+      "title": "Chính sách & hỗ trợ"
+    },
+    "purchase": {
+      "title": "Hỗ trợ mua hàng",
+      "content": {
+        "1": "Sau đây chúng tôi xin trình bày chi tiết quy trình mua hàng trên trang web của chúng tôi, nó rất đơn giản!",
+        "list": {
+          "1": "Bạn có thể mua hàng trực tuyến tại FRAGILE với tư cách là người dùng đã đăng ký.",
+          "2": "Bạn phải thêm các sản phẩm vào giỏ hàng và chọn các sản phẩm muốn mua, chọn địa chỉ nơi bạn muốn nhận chúng và thực hiện thanh toán",
+          "3": "Khi bạn đã mua hàng xong, chúng tôi sẽ gửi cho bạn một email xác nhận với tất cả các thông tin về đơn hàng. Bạn có thể theo dõi đơn đặt hàng của mình từ tài khoản của bạn."
+        }
+      }
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "content": {
+        "1": "Các câu hỏi thường gặp mà bạn có thể thắc mắc",
+        "list": {
+          "1": "Chất liệu và cách chăm sóc: Máy sấy tiêu thụ rất nhiều năng lượng. Thay vì sử dụng máy sấy, treo quần áo sẽ giúp chăm sóc quần áo của bạn vì nó làm giảm hao mòn vải, tạo ra ít nếp nhăn, không làm co quần áo, ngăn ngừa xơ vải và cũng không tiêu tốn năng lượng. Mỗi lần giặt sẽ tiêu tốn nước và năng lượng; bằng cách cho đồ đầy lồng giặt, số lần giặt giũ sẽ giảm đi và quần áo sẽ ít hao mòn hơn. Tránh làm máy giặt quá tải để có được một kết quả tốt. Ngoài ra, giặt ở nhiệt độ thấp có lợi hơn cho quần áo, không làm co sợ vải và giúp duy trì màu sắc của vải, đồng thời tiêu thụ ít năng lượng hơn."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Chính sách bảo mật",
+      "content": {
+        "1": "Đang cập nhật chính sách bảo mật!"
+      }
+    },
+    "usage": {
+      "title": "Chính sách sử dụng",
+      "content": {
+        "1": "Đang cập nhật chính sách sử dụng!"
+      }
+    }
+  },
+  "about": {
+    "introduce": {
+      "title": "Giới thiệu",
+      "brand": {
+        "1": "FRAGILE",
+        "2": "FRAGILE STUDIO"
+      },
+      "content": {
+        "1": "Nền tảng mua sắm trực tuyến",
+        "2": "có thể giúp bạn tạo trải nghiệm thương mại kỹ thuật số thống nhất, thông minh — cả trực tuyến và tại cửa hàng.",
+        "3": "Quản lý nhóm bán hàng bằng các giải pháp phù hợp với ngành kỹ thuật số và thích ứng với việc thay đổi thị trường và khách hàng nhanh hơn bằng cách mua hàng.",
+        "4": "FRAGILE mang đến cho người mua trải nghiệm mua sắm trực tuyến liền mạch, tự phục vụ với tất cả."
+      },
+      "box": {
+        "1": "1,000+ khách hàng",
+        "2": "1 năm kinh nghiệm",
+        "3": "1 giải thưởng"
+      }
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "brand": {
+        "1": "FRAGILE",
+        "2": "FRAGILE STUDIO"
+      },
+      "box": {
+        "info1": {
+          "title": "Cửa hàng",
+          "1": "Đường 39A, Thị Trấn Yên Mỹ, Huyện Yên Mỹ, Tỉnh Hưng Yên",
+          "2": "Điện Thoại: +89 971 603 963",
+          "3": "Email: fragile-support@gmail.com"
+        },
+        "info2": {
+          "title": "Việc làm",
+          "1": "Vui lòng theo dõi FRAGILE qua các kênh social để cập nhật các bài đăng tuyển dụng"
+        },
+        "info3": {
+          "title": "Giờ mở cửa",
+          "1": "Thứ 2 đến Thứ 7: 9am - 10pm",
+          "2": "Chủ Nhật: 10am - 6pm"
+        }
+      }
     }
   },
   "messages": {

@@ -60,6 +60,51 @@ export const ORDERS_STATUSES = [
   },
 ];
 
+export const ORDERS_FILTER_STATUSES = [
+  {
+    label: 'Tất cả đơn hàng',
+    value: '',
+    color: '#00a11f',
+    backgroundColor: '#00a11f',
+  },
+  {
+    label: 'Đã giao & thành công',
+    value: '1',
+    color: '#00a11f',
+    backgroundColor: '#00a11f',
+  },
+  {
+    label: 'Chờ xác nhận',
+    value: '2',
+    color: '#955251',
+    backgroundColor: '#955251',
+  },
+  {
+    label: 'Đã xác nhận & đang chuẩn bị hàng',
+    value: '3',
+    color: '#009473',
+    backgroundColor: '#009473',
+  },
+  {
+    label: 'Đã chuẩn bị hàng & chờ bên vận chuyển lấy hàng',
+    value: '4',
+    color: '#dda11b',
+    backgroundColor: '#dda11b',
+  },
+  {
+    label: 'Đã đưa cho bên vận chuyển và đang giao',
+    value: '5',
+    color: '#01018d',
+    backgroundColor: '#01018d',
+  },
+  {
+    label: 'Đơn Hủy',
+    value: '6',
+    color: '#ff2000',
+    backgroundColor: '#ff2000',
+  },
+];
+
 export const ORDERS_PAYMENTS = [
   {
     label: 'Thanh toán trực tiếp',

@@ -1,3 +1,5 @@
+import { CollectionImageProps } from './collection-image';
+
 export type CollectionProps = {
   _id: string;
   collectionName: string;
@@ -7,4 +9,5 @@ export type CollectionProps = {
   active: number;
   createdAt: string;
   updatedAt: string;
+  collectionImages: CollectionImageProps[];
 };

@@ -14,6 +14,11 @@ export const getById = async (id: string) => {
   return response.data;
 };
 
+export const getByPath = async (request: AxiosRequestConfig['params']) => {
+  const response = await apiClient?.post(`${prefix}/get-by-path`, request);
+  return response.data;
+};
+
 export const create = async (request: CollectionProps) => {
   const response = await apiClient?.post(`${prefix}`, request);
   return response.data;

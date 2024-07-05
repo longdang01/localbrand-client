@@ -1,0 +1,66 @@
+.introduce-layout {
+  padding: 3rem 0;
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .logo {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .logo-child {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+  }
+
+  .box {
+    width: 400px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    & > div {
+      padding: 3rem;
+    }
+
+    .box-content {
+      display: block;
+      margin: 1.5rem 0;
+      font-size: 1.8rem !important;
+    }
+
+    .box-brand {
+      font-weight: bold;
+      color: grey;
+    }
+  }
+
+  .content {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: 400px;
+
+    & > div {
+      padding: 3rem;
+
+      .title {
+        margin-left: 1rem;
+      }
+
+      .content-1 {
+        color: grey;
+        font-style: italic;
+        margin: 2rem 0;
+      }
+
+      .paraph {
+        margin: 2rem 0;
+      }
+    }
+  }
+}

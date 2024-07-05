@@ -133,3 +133,7 @@
 .swiper-button-prev:after {
   font-size: 1.6rem !important;
 }
+
+.ant-modal-mask {
+  backdrop-filter: blur(1px);
+}

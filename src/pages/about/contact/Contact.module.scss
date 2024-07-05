@@ -1,0 +1,50 @@
+.contact-layout {
+  padding: 3rem 0;
+
+  .logo-child {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+  }
+
+  .box {
+    width: 400px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    .social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: black;
+      color: #fff;
+      border-radius: 50%;
+      margin: 2rem 1.5rem 0 0;
+    }
+
+    & > div {
+      padding: 3rem;
+    }
+
+    .box-content {
+      display: block;
+      margin: 1.5rem 0 2rem;
+      font-size: 1.8rem !important;
+    }
+
+    .box-brand {
+      font-weight: bold;
+      color: grey;
+    }
+
+    .box-info {
+      color: grey;
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+  }
+}

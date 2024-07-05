@@ -83,11 +83,7 @@
       }
     }
 
-    .item:last-child {
-      padding-left: 0;
-    }
-
-    a.item:hover {
+    a.brand:hover {
       color: $primary-color;
       transition: all 0.3s ease;
     }

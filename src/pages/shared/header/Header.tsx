@@ -27,10 +27,13 @@ import {
 } from '@/constants/config';
 import { CategoryBigProps } from '@/models/category-big';
 import {
+  ABOUT_CONTACT,
+  ABOUT_INTRODUCE,
   ACCOUNT_ADDRESS,
   ACCOUNT_CHANGE_PASSWORD,
   ACCOUNT_ORDER,
   ACCOUNT_PROFILE,
+  COLLECTION,
   LOGIN_PATH,
 } from '@/paths';
 import { MdOutlineAccountCircle } from 'react-icons/md';
@@ -41,9 +44,9 @@ import { IoPower } from 'react-icons/io5';
 import storage from '@/utils/storage';
 import { useRouter } from 'next/navigation';
 import { ItemType } from 'antd/es/menu/interface';
-import { useGetMe } from '@/loaders/auth.loader';
 import useStorage from '@/utils/use-storage';
 import { useLoginState } from '@/stores/user.store';
+import Link from 'next/link';
 
 const Header = () => {
   const t = useTranslations('header');
@@ -128,7 +131,7 @@ const Header = () => {
               </div>
 
               <Space align="center" className={styles.list}>
-                <Typography.Link>{t('fields.home')}</Typography.Link>
+                <Link href={`/${locale}`}>{t('fields.home')}</Link>
                 <Dropdown
                   menu={{
                     items: searchCategoriesBig?.data?.categories?.map(
@@ -149,9 +152,15 @@ const Header = () => {
                     </Space>
                   </Typography.Link>
                 </Dropdown>
-                <Typography.Link>{t('fields.collection')}</Typography.Link>
-                <Typography.Link>{t('fields.introduction')}</Typography.Link>
-                <Typography.Link>{t('fields.contact')}</Typography.Link>
+                <Link href={`/${locale}/${COLLECTION}`}>
+                  {t('fields.collection')}
+                </Link>
+                <Link href={`/${locale}/${ABOUT_INTRODUCE}`}>
+                  {t('fields.introduction')}
+                </Link>
+                <Link href={`/${locale}/${ABOUT_CONTACT}`}>
+                  {t('fields.contact')}
+                </Link>
               </Space>
 
               <Flex align="center">

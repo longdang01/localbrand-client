@@ -9,13 +9,16 @@ import {
   getById,
   remove,
   search,
+  searchClient,
   update,
+  updateClient,
 } from '@/services/order.service';
 import { AxiosRequestConfig } from 'axios';
 import { useMutation, useQuery } from 'react-query';
 
 export const CACHE_ORDER = {
   SEARCH: 'SEARCH_ORDER',
+  SEARCH_CLIENT: 'SEARCH_ORDER_CLIENT',
   GET_BY_ID: 'GET_BY_ID_ORDER',
   GET_BY_CODE: 'GET_BY_CODE_ORDER',
   CREATE: 'CREATE_ORDER',
@@ -36,6 +39,23 @@ export const useSearchOrders = ({
     ...config,
     queryKey: [CACHE_ORDER.SEARCH, params],
     queryFn: () => search({ ...params }),
+    enabled: enabled,
+  });
+};
+
+export const useSearchOrdersClient = ({
+  params,
+  config,
+  enabled,
+}: {
+  params: AxiosRequestConfig['params'];
+  config?: QueryConfig<typeof searchClient>;
+  enabled?: boolean;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof searchClient>>({
+    ...config,
+    queryKey: [CACHE_ORDER.SEARCH_CLIENT, params],
+    queryFn: () => searchClient({ ...params }),
     enabled: enabled,
   });
 };
@@ -98,6 +118,22 @@ export const useUpdateOrder = ({
     onSuccess: () => {},
     ...config,
     mutationFn: (request: any) => update(id, request),
+  });
+};
+
+export const useUpdateClientOrder = ({
+  id,
+  config,
+}: {
+  id: string;
+  config?: MutationConfig<typeof updateClient>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: (request: any) => updateClient(id, request),
   });
 };
 

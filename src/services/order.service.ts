@@ -9,6 +9,11 @@ export const search = async (request: AxiosRequestConfig['params']) => {
   return response.data;
 };
 
+export const searchClient = async (request: AxiosRequestConfig['params']) => {
+  const response = await apiClient?.post(`${prefix}/search-client`, request);
+  return response.data;
+};
+
 export const getById = async (id: string) => {
   const response = await apiClient?.get(`${prefix}/${id}`);
   return response.data;
@@ -26,6 +31,14 @@ export const create = async (request: OrderProps) => {
 
 export const update = async (id: string, request: OrderProps) => {
   const response = await apiClient?.put(`${prefix}/${id}`, request);
+  return response.data;
+};
+
+export const updateClient = async (id: string, request: OrderProps) => {
+  const response = await apiClient?.put(
+    `${prefix}/update-client/${id}`,
+    request,
+  );
   return response.data;
 };
 

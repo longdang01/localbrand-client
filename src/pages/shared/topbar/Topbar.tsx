@@ -7,7 +7,7 @@ import { BiSupport } from 'react-icons/bi';
 import { RiLoginCircleLine } from 'react-icons/ri';
 import { LuUserPlus2 } from 'react-icons/lu';
 import { useLocale, useTranslations } from 'next-intl';
-import { LOGIN_PATH, SIGNUP_PATH } from '@/paths';
+import { LOGIN_PATH, SIGNUP_PATH, SUPPORT_PURCHASE } from '@/paths';
 import Link from 'next/link';
 import { FaRegHandPeace } from 'react-icons/fa';
 import { useGetMe } from '@/loaders/auth.loader';
@@ -41,12 +41,12 @@ const Topbar = () => {
 
             <Space align="center" className={styles.list}>
               <Tooltip title={t('purchase_support')} placement="bottomRight">
-                <Typography.Link>
+                <Link href={`/${locale}/${SUPPORT_PURCHASE}`}>
                   <Flex align="center" gap={4}>
                     <BiSupport />
                     <Typography.Text>{t('purchase_support')}</Typography.Text>
                   </Flex>
-                </Typography.Link>
+                </Link>
               </Tooltip>
 
               {!logged ? (

@@ -16,6 +16,7 @@
     "antd": "^5.17.3",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
+    "framer-motion": "^11.2.12",
     "http-proxy-middleware": "^3.0.0",
     "i18next": "^23.11.5",
     "lodash": "^4.17.21",

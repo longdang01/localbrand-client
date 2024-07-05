@@ -6,6 +6,7 @@ import {
 import {
   create,
   getById,
+  getByPath,
   remove,
   search,
   update,
@@ -16,6 +17,7 @@ import { useMutation, useQuery } from 'react-query';
 export const CACHE_COLLECTION = {
   SEARCH: 'SEARCH',
   GET_BY_ID: 'GET_BY_ID',
+  GET_BY_PATH: 'GET_BY_PATH',
   CREATE: 'CREATE',
   UPDATE: 'UPDATE',
   REMOVE: 'REMOVE',
@@ -51,6 +53,23 @@ export const useGetByIdCollection = ({
     ...config,
     queryKey: [CACHE_COLLECTION.GET_BY_ID, id],
     queryFn: () => getById(id),
+    enabled: enabled,
+  });
+};
+
+export const useGetByPath = ({
+  params,
+  config,
+  enabled,
+}: {
+  params: AxiosRequestConfig['params'];
+  config?: QueryConfig<typeof getByPath>;
+  enabled?: boolean;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof getByPath>>({
+    ...config,
+    queryKey: [CACHE_COLLECTION.GET_BY_PATH, params],
+    queryFn: () => getByPath({ ...params }),
     enabled: enabled,
   });
 };

@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './modal-render.module.scss';
 import { CloseOutlined } from '@ant-design/icons';
 import { customColorsWhiteText } from '@/utils/colors';
-import { useTranslation } from 'react-i18next';
 import { useTranslations } from 'next-intl';
 
 interface Props {
