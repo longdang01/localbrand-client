@@ -47,6 +47,7 @@ import { ItemType } from 'antd/es/menu/interface';
 import useStorage from '@/utils/use-storage';
 import { useLoginState } from '@/stores/user.store';
 import Link from 'next/link';
+import ProductSearch from '../search/ProductSearch';
 
 const Header = () => {
   const t = useTranslations('header');
@@ -116,6 +117,10 @@ const Header = () => {
     },
   ];
 
+  const handleChangeCategory = (e:any) => {
+    router.push(`/${locale}/c/${e?.key}`);
+  } 
+
   return (
     <>
       <div className={styles.header}>
@@ -136,10 +141,11 @@ const Header = () => {
                   menu={{
                     items: searchCategoriesBig?.data?.categories?.map(
                       (category: CategoryBigProps) => ({
-                        key: category?._id,
+                        key: category?.path,
                         label: category?.categoryName,
                       }),
                     ),
+                    onClick: handleChangeCategory
                   }}
                   trigger={['click']}
                 >
@@ -164,20 +170,7 @@ const Header = () => {
               </Space>
 
               <Flex align="center">
-                <Input
-                  addonBefore={<SearchOutlined />}
-                  placeholder={t('search_here')}
-                  className={styles.searchBar}
-                  readOnly
-                />
-
-                <Tooltip title={t('fields.search')}>
-                  <Button
-                    shape="circle"
-                    icon={<SearchOutlined />}
-                    className={styles.btnSearch}
-                  />
-                </Tooltip>
+                <ProductSearch />
 
                 <Tooltip title={t('fields.cart')}>
                   <div className={styles.cart}>

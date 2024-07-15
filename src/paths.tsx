@@ -1,5 +1,9 @@
+// FOR PRODUCTS
+export const PRODUCT_PATH = '/product';
+
 // FOR COLLECTIONS
 export const COLLECTION = '/collection';
+
 // FOR ABOUT
 export const ABOUT_INTRODUCE = '/about/introduce';
 export const ABOUT_CONTACT = '/about/contact';

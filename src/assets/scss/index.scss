@@ -299,6 +299,10 @@ body {
   padding: 3rem 0;
 }
 
+.pt-3 {
+  padding: 3rem 0 0;
+}
+
 .layout-content {
   padding: 1.5rem 3rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -313,5 +317,49 @@ body {
   li {
     color: grey;
     font-weight: 400 !important;
+  }
+}
+
+.search-bar {
+  border-radius: 20px;
+  cursor: pointer;
+
+  span {
+    background: none;
+
+    .ant-input-group-addon {
+      border-top-left-radius: 20px !important;
+      border-bottom-left-radius: 20px !important;
+    }
+  }
+
+  input {
+    cursor: pointer;
+    border-left: 0;
+    padding-left: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 35px;
+
+    &:hover,
+    &:focus {
+      border-color: #0505050f;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+.btn-search {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+
+  .btn-search {
+    display: block;
   }
 }

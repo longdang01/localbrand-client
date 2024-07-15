@@ -16,6 +16,10 @@
   },
   "header": {
     "search_here": "Tìm kiếm tại đây",
+    "search_title": "Tìm kiếm sản phẩm",
+    "product_list": "Danh sách sản phẩm",
+    "search_result": "Kết quả tìm thấy",
+    "product": "sản phẩm",
     "mobile": {
       "title": "Menu"
     },
@@ -107,6 +111,24 @@
     "title_detail": "Chi tiết bộ sưu tập",
     "fields": {
       "date": "Ngày phát hành"
+    }
+  },
+  "product": {
+    "title": "Cửa hàng",
+    "buy": "Mua hàng",
+    "sold": "Hết hàng",
+    "label": {
+      "color": "Màu sắc",
+      "size": "Kích cỡ",
+      "status": "Tình trạng",
+      "add_to_cart": "Thêm vào giỏ hàng",
+      "stock": "Còn",
+      "product": "sản phẩm",
+      "origin": "Nguồn gốc",
+      "material": "Chất liệu",
+      "style": "Phong cách",
+      "description": "Mô tả",
+      "size_chart": "Bảng kích cỡ"
     }
   },
   "account": {

@@ -5,6 +5,7 @@ import {
 } from '@/lib/react-query';
 import {
   create,
+  getByClient,
   getById,
   getByPath,
   remove,
@@ -21,33 +22,54 @@ export const CACHE_PRODUCT = {
   UPDATE: 'UPDATE',
   REMOVE: 'REMOVE',
   GET_BY_PATH: 'PRODUCT_GET_BY_PATH',
+  GET_BY_CLIENT: 'PRODUCT_GET_BY_CLIENT',
 };
 
 export const useSearchProducts = ({
   params,
   config,
+  enabled
 }: {
   params: AxiosRequestConfig['params'];
   config?: QueryConfig<typeof search>;
+  enabled?: boolean;
 }) => {
   return useQuery<ExtractFnReturnType<typeof search>>({
     ...config,
     queryKey: [CACHE_PRODUCT.SEARCH, params],
     queryFn: () => search({ ...params }),
+    enabled: enabled
   });
 };
 
 export const useGetByPath = ({
   params,
   config,
+  enabled
 }: {
   params: AxiosRequestConfig['params'];
   config?: QueryConfig<typeof getByPath>;
+  enabled?: boolean;
 }) => {
   return useQuery<ExtractFnReturnType<typeof getByPath>>({
     ...config,
     queryKey: [CACHE_PRODUCT.GET_BY_PATH, params],
     queryFn: () => getByPath({ ...params }),
+    enabled: enabled
+  });
+};
+
+export const useGetByClient = ({
+  params,
+  config,
+}: {
+  params: AxiosRequestConfig['params'];
+  config?: QueryConfig<typeof getByClient>;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof getByClient>>({
+    ...config,
+    queryKey: [CACHE_PRODUCT.GET_BY_CLIENT, params],
+    queryFn: () => getByClient({ ...params }),
   });
 };
 

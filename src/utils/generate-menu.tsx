@@ -48,9 +48,9 @@ export const convertToMenuItems = (
 
     // Convert children recursively
     const convertedChildren: MenuItem[] | null =
-      children.length > 0 ? convertToMenuItems(children, getItem) : null;
+    children && children.length > 0 ? convertToMenuItems(children, getItem) : null;
 
     // Call getItem to construct MenuItem object
-    return getItem(label, key.toString(), icon, convertedChildren);
+    return getItem?.(label, key.toString(), icon, convertedChildren);
   });
 };

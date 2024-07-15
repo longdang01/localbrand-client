@@ -23,10 +23,10 @@ export default function AccountLayout({
       <div className={styles.layout}>
         <div className="layout-client">
           <Row gutter={[16, 16]}>
-            <Col span={6} md={6} lg={6}>
+            <Col span={24} md={8} lg={6}>
               <AccountSidebar />
             </Col>
-            <Col span={18} md={18} lg={18}>
+            <Col span={24} md={16} lg={18}>
               {children}
             </Col>
           </Row>

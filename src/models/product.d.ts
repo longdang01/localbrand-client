@@ -1,8 +1,9 @@
+import { CategorySmallProps } from './category-small';
 import { ProductColorsProps } from './product-color';
 
 export type ProductProps = {
   _id: string;
-  subCategory: string;
+  subCategory: string | CategorySmallProps;
   brand: string;
   collectionInfo: string;
   supplier: string;

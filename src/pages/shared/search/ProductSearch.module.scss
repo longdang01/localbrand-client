@@ -1,0 +1,31 @@
+.search-input {
+    input,
+    button {
+        height: 50px !important;
+    }
+
+    input {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        padding-left: 2rem;
+    }
+    
+    button {
+        width: 50px !important;
+        border-top-right-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+    }
+}
+
+.item {
+    padding: 2rem 0;
+  
+    .image {
+      width: 80px;
+      height: 80px;
+      border-radius: 5px;
+      object-fit: cover;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+  }
+  

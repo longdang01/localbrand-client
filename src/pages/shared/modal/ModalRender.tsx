@@ -69,10 +69,8 @@ const ModalRender = ({
         onCancel={handleCancel}
         okText={okText || t('ok_text')}
         cancelText={cancelText || t('cancel_text')}
-        okButtonProps={{ hidden: hideOkButton ? true : false }}
-        cancelButtonProps={{
-          hidden: hideCancelButton ? true : false,
-        }}
+        okButtonProps={{ style: { display: hideOkButton ? 'none' : "inline-block" } }}
+        cancelButtonProps={{ style: { display: hideCancelButton ? 'none' : "inline-block" } }}
         footer={hideFooter && null}
         confirmLoading={confirmLoading}
         maskClosable={maskClosable}

@@ -1,3 +1,4 @@
+import { ProductImageProps } from './product-image';
 import { ProductSizeProps } from './product-size';
 
 export type ProductColorsProps = {
@@ -8,7 +9,9 @@ export type ProductColorsProps = {
   price?: number;
   priceImport?: number;
   sizes?: ProductSizeProps[];
-  images?: ProductSizeProps[];
+  images?: ProductImageProps[];
+
+  discount?: any;
 
   active?: number;
   createdAt?: string;

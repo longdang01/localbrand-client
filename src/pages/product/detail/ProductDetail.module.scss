@@ -1,0 +1,236 @@
+@import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/rules.scss';
+
+.picture,
+.thumb {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border: 1px solid #c2c2c2;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.picture-container {
+  position: relative;
+
+  .discount {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: black !important;
+    line-height: 1;
+    padding: 6px 10px 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(245, 152, 109, 0.3);
+    z-index: 3;
+  }
+
+  :global {
+    .swiper {
+      height: 100vh;
+
+      @media screen and (max-width: 992px) {
+        & {
+          height: 60vh;
+        }
+      }
+    }
+  }
+}
+
+.thumb-container {
+  :global {
+    .swiper {
+      height: 100vh;
+
+      @media screen and (max-width: 992px) {
+        & {
+          height: 90px !important;
+        }
+      }
+
+      img {
+        cursor: pointer;
+        transition: border-color 0.5s ease;
+
+        &:hover {
+          border-color: black !important;
+        }
+      }
+
+      .swiper-slide-thumb-active {
+        img {
+          border-color: black !important;
+        }
+      }
+    }
+  }
+}
+
+.content-container {
+  padding: 5rem;
+  border: 1px solid #c2c2c2;
+  border-radius: 10px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 992px) {
+    & {
+      padding: 2rem;
+      height: 60vh;
+    }
+  }
+
+  .header {
+    .name {
+      margin-bottom: 10px;
+      font-size: 20px !important;
+      font-weight: bold;
+    }
+
+    .price {
+      display: block;
+      font-weight: 500;
+      font-size: 20px !important;
+      font-style: italic;
+      margin: 0 0 20px;
+    }
+  }
+
+  .info {
+    margin: 5rem 0;
+  }
+
+  .variant-container {
+    & > div {
+      margin-bottom: 2rem;
+    }
+
+    .label {
+      min-width: 110px;
+    }
+
+    .box {
+      border: 2px solid rgba(0, 0, 0, 0);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      transition: var(--transition);
+      box-shadow:
+        rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      transition: border-color 0.5s ease;
+
+      &:hover {
+        border-color: black;
+      }
+
+      .box-item {
+        @include flex-variant(center, center, row);
+        width: 20px;
+        height: 20px;
+        // background: red;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .quantity {
+    width: 130px;
+
+    .minus {
+      width: 32px;
+      height: 32px;
+      display: block;
+      float: left;
+      line-height: 26px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      color: #000;
+      background: #f6f7fb;
+      border-radius: 50%;
+      transition: 0.3s;
+      border: 2px solid #e1e1e1;
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        0 0px 0px rgba(0, 0, 0, 0.22);
+    }
+
+    input {
+      float: left;
+      border: none;
+      width: 32px;
+      height: 32px;
+      line-height: 30px;
+      padding: 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0 12px;
+      color: #27272e;
+      border-radius: 2px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input:focus-visible {
+      outline: 2px solid $primary-color;
+    }
+    // input[type='number'] {
+    //   -moz-appearance: textfield;
+    // }
+
+    .plus {
+      width: 32px;
+      height: 32px;
+      display: block;
+      float: left;
+      line-height: 26px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      color: #000;
+      background: #f6f7fb;
+      border-radius: 50%;
+      transition: 0.3s;
+      border: 2px solid #e1e1e1;
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        0 0px 0px rgba(0, 0, 0, 0.22);
+    }
+  }
+}
+
+.bottom {
+  background: #f9f3f0;
+  margin-top: 3rem;
+  padding: 8rem 0 3.5rem;
+
+  * {
+    font-weight: bold;
+  }
+
+  .size-chart {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 0px 0px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+  }
+}
