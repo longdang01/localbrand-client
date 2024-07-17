@@ -3,8 +3,10 @@ export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 export const EN = 'en';
 export const VI = 'vi';
 
+export const NAME = "FRAGILE";
 export const PAGE_INDEX = 'page_index';
 export const PAGE_SIZE = 'page_size';
+export const STEP = 'step';
 export const PRODUCT_PAGE_SIZE = 12;
 export const SEARCH_DATA = 'search_data';
 export const HTTP = 'http';
@@ -158,6 +160,17 @@ export const INVOICE_PAIDS = [
   },
   {
     label: 'Chưa thanh toán',
+    value: '2',
+  },
+];
+
+export const CARTDETAIL_STATUS = [
+  {
+    label: 'Chọn Mua',
+    value: '1',
+  },
+  {
+    label: 'Bỏ Chọn',
     value: '2',
   },
 ];

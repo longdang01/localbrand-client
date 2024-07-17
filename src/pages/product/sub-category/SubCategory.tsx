@@ -64,8 +64,6 @@ const SubCategory = ({ subCategory, category, flag }: Props) => {
     router.push(`${e?.key}`);
   };
 
-  console.log('data', currentData);
-
   return (
     <>
       <div className="ptb-3">

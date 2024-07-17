@@ -1,6 +1,12 @@
 // FOR PRODUCTS
 export const PRODUCT_PATH = '/product';
 
+// FOR CART
+export const CART_PATH = '/cart';
+
+// FOR PAYMENT
+export const PAYMENT_PATH = '/payment';
+
 // FOR COLLECTIONS
 export const COLLECTION = '/collection';
 

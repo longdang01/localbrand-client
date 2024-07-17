@@ -5,6 +5,7 @@ import {
 } from '@/lib/react-query';
 import {
   create,
+  createClient,
   getByCode,
   getById,
   remove,
@@ -22,6 +23,7 @@ export const CACHE_ORDER = {
   GET_BY_ID: 'GET_BY_ID_ORDER',
   GET_BY_CODE: 'GET_BY_CODE_ORDER',
   CREATE: 'CREATE_ORDER',
+  CREATE_CLIENT: 'CREATE_CLIENT_ORDER',
   UPDATE: 'UPDATE_ORDER',
   REMOVE: 'REMOVE_ORDER',
 };
@@ -102,6 +104,20 @@ export const useCreateOrder = ({
     onSuccess: () => {},
     ...config,
     mutationFn: create,
+  });
+};
+
+export const useCreateClientOrder = ({
+  config,
+}: {
+  config?: MutationConfig<typeof createClient>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: createClient,
   });
 };
 

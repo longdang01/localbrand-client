@@ -1,0 +1,80 @@
+@import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/rules.scss';
+
+.cart {
+  position: relative;
+  margin: 0 1.5rem;
+
+  .quantity {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    @include flex-variant(center, center, row);
+    background: $primary-color;
+    color: $white-color;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50%;
+  }
+}
+
+.container {
+  .main {
+    height: calc(100vh - 206px);
+    overflow-y: auto;
+
+    .item {
+      position: relative;
+      margin-bottom: 3rem;
+
+      .image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+
+      .btn-remove {
+        position: absolute;
+        @include flex-variant(center, center, row);
+        top: -5px;
+        left: -5px;
+        width: 30px;
+        height: 30px;
+        background: #f6f7fb;
+        border: 2px solid #fff;
+        border-radius: 50%;
+      }
+
+      .content {
+        margin-left: 2rem;
+
+        a {
+          font-weight: bold;
+        }
+
+        & > a,
+        & > h1 {
+          margin: 0.5rem;
+        }
+
+        & > h1:last-child {
+          color: gray;
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin: 1rem 0;
+
+    .goto-cart {
+      &:hover {
+        border-color: black !important;
+      }
+    }
+  }
+}

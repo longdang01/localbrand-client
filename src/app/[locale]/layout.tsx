@@ -6,15 +6,29 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import AppProvider from './AppProvider';
 import AntdStyledComponentsRegistry from './AntdStyledComponentsRegistry';
 import Topbar from '@/pages/shared/topbar/Topbar';
+import { NAME } from '@/constants/config';
 
 interface RootLayoutProps {
   children: React.ReactNode;
   params: {
     locale: string;
+  };
+}
+
+export async function generateMetadata(props: { params: { locale: string } }) {
+  
+  const t = await getTranslations({
+    locale: props.params.locale,
+    namespace: 'metadata',
+  });
+
+  return {
+    title: `${t('home.title')} | ${NAME}`,
+    description: `${t('home.description')}`,
   };
 }
 
@@ -27,6 +41,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
+      {/* <Suspense fallback={<Loading />}> */}
         <AppProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <AntdStyledComponentsRegistry>
@@ -37,6 +52,7 @@ export default async function RootLayout({
             </AntdStyledComponentsRegistry>
           </NextIntlClientProvider>
         </AppProvider>
+      {/* </Suspense> */}
       </body>
     </html>
   );

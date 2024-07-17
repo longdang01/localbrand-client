@@ -48,6 +48,7 @@ import useStorage from '@/utils/use-storage';
 import { useLoginState } from '@/stores/user.store';
 import Link from 'next/link';
 import ProductSearch from '../search/ProductSearch';
+import MiniCart from '@/pages/cart/mini-cart/MiniCart';
 
 const Header = () => {
   const t = useTranslations('header');
@@ -172,22 +173,7 @@ const Header = () => {
               <Flex align="center">
                 <ProductSearch />
 
-                <Tooltip title={t('fields.cart')}>
-                  <div className={styles.cart}>
-                    <Button
-                      shape="circle"
-                      icon={<RiShoppingCartLine />}
-                      className={styles.btnCart}
-                    />
-                    <Flex
-                      justify="center"
-                      align="center"
-                      className={styles.quantity}
-                    >
-                      1
-                    </Flex>
-                  </div>
-                </Tooltip>
+                <MiniCart />
 
                 <Dropdown
                   menu={{

@@ -29,6 +29,11 @@ export const create = async (request: OrderProps) => {
   return response.data;
 };
 
+export const createClient = async (request: OrderProps) => {
+  const response = await apiClient?.post(`${prefix}/create-client`, request);
+  return response.data;
+};
+
 export const update = async (id: string, request: OrderProps) => {
   const response = await apiClient?.put(`${prefix}/${id}`, request);
   return response.data;

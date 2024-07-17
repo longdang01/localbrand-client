@@ -1,7 +1,31 @@
 {
-    "global": {
-        "vi": "Vietnamese",
-        "en": "English",
-        "title": "Hello"
+  "global": {
+    "app": "FRAGILE",
+    "vi": "Vietnamese",
+    "en": "English",
+    "title": "Xin chao",
+    "click_here": "Bấm tại đây"
+  },
+  "metadata": {
+    "home": {
+      "title": "Trang chủ",
+      "description": "Trang chủ"
+    },
+    "shop": {
+      "title": "Cửa hàng",
+      "description": "Cửa hàng"
+    },
+    "collection": {
+      "title": "Bộ sưu tập",
+      "description": "Bộ sưu tập"
+    },
+    "introduce": {
+      "title": "Introduce",
+      "description": "Introduce"
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "description": "Liên hệ"
     }
+  }
 }

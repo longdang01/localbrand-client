@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Col, Flex, Row, Skeleton, Spin, Typography } from 'antd';
 import styles from './Collection.module.scss';
 import logo from '@/assets/images/logo/logo2.jpg';

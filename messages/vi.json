@@ -6,6 +6,59 @@
     "title": "Xin chao",
     "click_here": "Bấm tại đây"
   },
+  "metadata": {
+    "home": {
+      "title": "Trang chủ",
+      "description": "Trang chủ"
+    },
+    "shop": {
+      "title": "Cửa hàng",
+      "description": "Cửa hàng"
+    },
+    "collection": {
+      "title": "Bộ sưu tập",
+      "description": "Bộ sưu tập",
+      "title_detail": "Chi tiết bộ sưu tập",
+      "description_detail": "Chi tiết bộ sưu tập"
+    },
+    "introduce": {
+      "title": "Giới thiệu",
+      "description": "Giới thiệu"
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "description": "Liên hệ"
+    },
+    "auth": {
+      "forgot_password_title": "Quên mật khẩu",
+      "login_title": "Đăng nhập",
+      "reset_password_title": "Đặt lại mật khẩu",
+      "signup_title": "Đăng ký"
+    },
+    "cart": {
+      "title": "Giỏ hàng",
+      "description": "Giỏ hàng"
+    },
+    "payment": {
+      "title": "Thanh toán",
+      "description": "Thanh toán"
+    },
+    "product": {
+      "title_detail": "Chi tiết sản phẩm"
+    },
+    "support": {
+      "faq_title": "Câu hỏi thường gặp",
+      "privacy_title": "Chính sách bảo mật",
+      "purchase_title": "Hỗ trợ mua hàng",
+      "usage_title": "Chính sách sử dụng"
+    },
+    "account": {
+      "address_title": "Địa chỉ nhận hàng",
+      "change_password_title": "Đổi mật khẩu",
+      "order_title": "Theo dõi đơn hàng",
+      "profile_title": "Thông tin tài khoản"
+    }
+  },
   "buttons": {
     "explore": "Khám phá ngay"
   },
@@ -347,6 +400,52 @@
           "2": "Chủ Nhật: 10am - 6pm"
         }
       }
+    }
+  },
+  "cart": {
+    "title": "Giỏ hàng",
+    "view_cart": "Xem giỏ hàng",
+    "payment": "Thanh toán",
+    "product": "Sản phẩm",
+    "status": "Trạng thái",
+    "color": "Màu sắc",
+    "size":"Kích cỡ",
+    "quantity": "Số lượng",
+    "price": "Đơn giá",
+    "total": "Thành tiền",
+    "action": "Tác vụ",
+    "update_product": "Cập nhật sản phẩm",
+    "delete": "Xoá sản phẩm",
+    "buying": "Đang mua",
+    "create_product_warning": "Phân loại hàng đã tồn tại",
+    "quantity_product_warning": "Số lượng bán không đủ",
+    "update_success": "Cập nhật thành công!",
+    "buying_success": "Chọn mua thành công!",
+    "buying_failure": "Bỏ chọn mua thành công!",
+    "delete_success": "Xoá thành công!",
+    "confirm_delete": "Bạn có chắc chắn muốn xoá khỏi giỏ hàng không?",
+    "confirm_delete_title": "Xác nhận xoá",
+    "ok": "Lưu",
+    "cancel": "Huỷ",
+    "note": "Hãy tích ô checkbox để chọn sản phẩm bạn muốn mua!"
+  },
+  "payment": {
+    "title": "Thanh toán",
+    "next": "Tiếp theo",
+    "previous": "Quay lại",
+    "done": "Hoàn thành đơn hàng",
+    "order": "Đặt hàng",
+    "note": "Lời nhắn cho người bán hàng",
+    "payment_type": "Phương thức đặt hàng",
+    "order_success": "Đặt hàng thành công",
+    "notification": {
+      "address": "Chưa có địa chỉ mặc định!",
+      "product_buy": "Bạn chưa đặt / chọn mua sản phẩm nào!"
+    },
+    "steps": {
+      "1": "Địa chỉ nhận hàng",
+      "2": "Danh sách sản phẩm mua",
+      "3": "Đơn hàng"
     }
   },
   "messages": {

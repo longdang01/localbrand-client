@@ -10,6 +10,9 @@ interface Props {
   isCheckBox?: boolean;
   rowKey?: string;
   loading?: boolean;
+  pagination?: boolean;
+  bordered?: boolean;
+  y?: number;
 }
 
 const TYPE_SELECT = 'checkbox';
@@ -21,6 +24,9 @@ const TableRender = ({
   isCheckBox = false,
   rowKey = '_id',
   loading,
+  pagination = true,
+  bordered = true,
+  y = 300
 }: Props) => {
   const hideGotoRange1 = useMediaQuery(
     `(min-width: 600px) and (max-width: 650px)`,
@@ -55,19 +61,21 @@ const TableRender = ({
           }
           columns={columns}
           dataSource={data}
-          scroll={{ x: 768, y: 300 }}
+          scroll={{ x: 768, y: y }}
           pagination={false}
-          bordered
+          bordered={bordered}
           size="large"
           rowKey={rowKey}
         />
       </div>
-      <Flex align="center" justify="end">
-        <PaginationRender
-          total={total}
-          showQuickJumper={hideGotoRange1 || hideGotoRange2 ? false : true}
-        />
-      </Flex>
+      {pagination && (
+        <Flex align="center" justify="end">
+          <PaginationRender
+            total={total}
+            showQuickJumper={hideGotoRange1 || hideGotoRange2 ? false : true}
+          />
+        </Flex>
+      )}
     </>
   );
 };

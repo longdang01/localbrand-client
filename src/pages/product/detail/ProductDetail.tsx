@@ -30,6 +30,8 @@ import {
   useGetByVariant,
 } from '@/loaders/cart-detail.loader';
 import { useGetMe } from '@/loaders/auth.loader';
+import { queryClient } from '@/lib/react-query';
+import { CACHE_CART } from '@/loaders/cart.loader';
 
 interface Props {
   path: string;
@@ -83,6 +85,7 @@ const ProductDetail = ({ path }: Props) => {
     config: {
       onSuccess: (_) => {
         // if (!variant) setCartNumber(cartNumber + 1);
+        queryClient.invalidateQueries([CACHE_CART.SEARCH])
         notification.success({ message: 'Đã thêm vào giỏ hàng' });
       },
       onError: (error: any) => {
