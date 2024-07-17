@@ -30,7 +30,7 @@ const SubCategory = ({ subCategory, category, flag }: Props) => {
     params: {
       parent: category,
       previous: flag,
-      child: subCategory
+      child: subCategory,
     },
   });
 
@@ -93,8 +93,8 @@ const SubCategory = ({ subCategory, category, flag }: Props) => {
               <div style={{ marginBottom: 50 }}>
                 <Row gutter={[24, 50]}>
                   {getByClient?.isLoading
-                    ? [...Array(12)]?.map(() => (
-                        <Col span={24} md={12} lg={8}>
+                    ? [...Array(12)]?.map((_, index: number) => (
+                        <Col span={24} md={12} lg={8} key={index}>
                           <Fragment>
                             <Skeleton.Image
                               active
@@ -113,11 +113,13 @@ const SubCategory = ({ subCategory, category, flag }: Props) => {
                           </Fragment>
                         </Col>
                       ))
-                    : currentData?.map((product: ProductProps) => (
-                        <Col span={24} md={12} lg={8}>
-                          <ProductCard product={product} />
-                        </Col>
-                      ))}
+                    : currentData?.map(
+                        (product: ProductProps, index: number) => (
+                          <Col span={24} md={12} lg={8} key={index}>
+                            <ProductCard product={product} />
+                          </Col>
+                        ),
+                      )}
                 </Row>
               </div>
 

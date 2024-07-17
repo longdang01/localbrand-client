@@ -19,7 +19,7 @@
 
     .list {
       a {
-        @include flex-variant(start, center, row);
+        @include flex-variant(flex-start, center, row);
         margin-bottom: 1.5rem;
         font-weight: 600;
 

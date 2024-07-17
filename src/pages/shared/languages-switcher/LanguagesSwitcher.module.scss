@@ -2,12 +2,12 @@
 @import '@/assets/scss/rules.scss';
 
 .locale {
-    @include flex-variant(start, center, row);
-    color: $white-color;    
-    line-height: 40px;
+  @include flex-variant(flex-start, center, row);
+  color: $white-color;
+  line-height: 40px;
 
-    .title {
-        color: $white-color;    
-        margin: 0 .5rem;
-    }
+  .title {
+    color: $white-color;
+    margin: 0 0.5rem;
+  }
 }

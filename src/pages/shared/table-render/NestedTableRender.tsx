@@ -1,7 +1,7 @@
 import { Flex, Table, TableColumnsType } from 'antd';
 import classes from './table-render.module.scss';
 import PaginationRender from '../pagination-render/PaginationRender';
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from '@/utils/responsive';
 
 interface Props {
   columns?: TableColumnsType<any>;
@@ -24,9 +24,13 @@ const NestedTableRender = ({
   columnsExpanded,
   isPaginationExpanded,
 }: Props) => {
-  const isLargeScreen = useMediaQuery({ minWidth: 1700 });
-  const hideGotoRange1 = useMediaQuery({ minWidth: 600, maxWidth: 650 });
-  const hideGotoRange2 = useMediaQuery({ minWidth: 750, maxWidth: 850 });
+  const isLargeScreen = useMediaQuery(`(min-width: 1700px)`);
+  const hideGotoRange1 = useMediaQuery(
+    `(min-width: 600px) and (max-width: 650px)`,
+  );
+  const hideGotoRange2 = useMediaQuery(
+    `(min-width: 750px) and (max-width: 850px)`,
+  );
 
   const rowSelection = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {

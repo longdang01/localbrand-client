@@ -2,24 +2,14 @@
 
 import { useGetByClient } from '@/loaders/product.loader';
 import styles from './Category.module.scss';
-import {
-  Col,
-  Divider,
-  Flex,
-  Menu,
-  Pagination,
-  Row,
-  Skeleton,
-  Spin,
-} from 'antd';
+import { Col, Flex, Menu, Pagination, Row, Skeleton, Spin } from 'antd';
 import { convertToMenuItems, getItem } from '@/utils/generate-menu';
 import { usePathname, useRouter } from 'next/navigation';
 import { NavigationItem } from '@/models/sidebar';
 import { useLocale } from 'next-intl';
 import { ItemType } from 'antd/es/menu/interface';
 import ProductCard from '@/pages/shared/product/card/ProductCard';
-import PaginationRender from '@/pages/shared/pagination-render/PaginationRender';
-import { PAGE_SIZE, PRODUCT_PAGE_SIZE } from '@/constants/config';
+import { PRODUCT_PAGE_SIZE } from '@/constants/config';
 import { Fragment, useMemo, useState } from 'react';
 import { ProductProps } from '@/models/product';
 
@@ -101,8 +91,8 @@ const Category = ({ category, flag }: Props) => {
               <div style={{ marginBottom: 50 }}>
                 <Row gutter={[24, 50]}>
                   {getByClient?.isLoading
-                    ? [...Array(12)]?.map(() => (
-                        <Col span={24} md={12} lg={8}>
+                    ? [...Array(12)]?.map((_, index) => (
+                        <Col span={24} md={12} lg={8} key={index}>
                           <Fragment>
                             <Skeleton.Image
                               active
@@ -121,11 +111,13 @@ const Category = ({ category, flag }: Props) => {
                           </Fragment>
                         </Col>
                       ))
-                    : currentData?.map((product: ProductProps) => (
-                        <Col span={24} md={12} lg={8}>
-                          <ProductCard product={product} />
-                        </Col>
-                      ))}
+                    : currentData?.map(
+                        (product: ProductProps, index: number) => (
+                          <Col span={24} md={12} lg={8} key={index}>
+                            <ProductCard product={product} />
+                          </Col>
+                        ),
+                      )}
                 </Row>
               </div>
 

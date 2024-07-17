@@ -5,7 +5,7 @@ import {
   BreadcrumbItemType,
   BreadcrumbSeparatorType,
 } from 'antd/es/breadcrumb/Breadcrumb';
-import { BREADCRUMBS } from './constants/Breadcrumb.constants';
+// import { BREADCRUMBS } from './constants/Breadcrumb.constants';
 
 interface Props {
   pageBreadcrumbs?:
@@ -18,7 +18,7 @@ const BreadcrumbRender = ({ pageBreadcrumbs }: Props) => {
     <>
       <div className={styles.breadcrumb}>
         <div className="layout-client">
-          <Flex align="center" justify="start" style={{ height: '100%' }}>
+          <Flex align="center" justify="flex-start" style={{ height: '100%' }}>
             <Space>
               <>
                 <Button>
@@ -26,7 +26,7 @@ const BreadcrumbRender = ({ pageBreadcrumbs }: Props) => {
                 </Button>
                 <span>/</span>
               </>
-              <Breadcrumb items={pageBreadcrumbs || BREADCRUMBS} />
+              <Breadcrumb items={pageBreadcrumbs} />
             </Space>
           </Flex>
         </div>

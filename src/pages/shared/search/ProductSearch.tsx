@@ -104,51 +104,56 @@ const ProductSearch = () => {
             </Flex>
             <List>
               {searchProducts?.isLoading ? (
-                <Flex justify='center' align='center' style={{ height: 300}}>
+                <Flex justify="center" align="center" style={{ height: 300 }}>
                   <Spin />
                 </Flex>
               ) : (
-                searchProducts?.data?.products?.map((product: ProductProps) => (
-                  <Item style={{ display: 'block' }}>
-                    <Row gutter={[20, 20]} className={styles.item}>
-                      <Col span={3} md={3} lg={3}>
-                        <Flex align="center">
-                          <img
-                            src={product?.colors?.[0]?.images?.[0].picture}
-                            className={styles.image}
-                            alt="Image"
-                          />
-                        </Flex>
-                      </Col>
-                      <Col span={21} md={21} lg={21}>
-                        <Flex
-                          justify="space-between"
-                          align="center"
-                          style={{ height: '100%' }}
-                        >
-                          <Flex
-                            justify="center"
-                            style={{ height: '100%' }}
-                            vertical
-                          >
-                            <Link href={'/'} style={{ fontWeight: 'bold' }}>
-                              {product.productName}
-                            </Link>
-                            <Flex>
-                              <Typography.Text style={{ color: 'grey' }}>
-                                {(product?.subCategory as CategorySmallProps)?.subCategoryName}
-                              </Typography.Text>
-                            </Flex>
+                searchProducts?.data?.products?.map(
+                  (product: ProductProps, index: number) => (
+                    <Item style={{ display: 'block' }} key={index}>
+                      <Row gutter={[20, 20]} className={styles.item}>
+                        <Col span={3} md={3} lg={3}>
+                          <Flex align="center">
+                            <img
+                              src={product?.colors?.[0]?.images?.[0].picture}
+                              className={styles.image}
+                              alt="Image"
+                            />
                           </Flex>
-                          <Button
-                            type="primary"
-                            icon={<RiShoppingCartLine />}
-                          />
-                        </Flex>
-                      </Col>
-                    </Row>
-                  </Item>
-                ))
+                        </Col>
+                        <Col span={21} md={21} lg={21}>
+                          <Flex
+                            justify="space-between"
+                            align="center"
+                            style={{ height: '100%' }}
+                          >
+                            <Flex
+                              justify="center"
+                              style={{ height: '100%' }}
+                              vertical
+                            >
+                              <Link href={'/'} style={{ fontWeight: 'bold' }}>
+                                {product.productName}
+                              </Link>
+                              <Flex>
+                                <Typography.Text style={{ color: 'grey' }}>
+                                  {
+                                    (product?.subCategory as CategorySmallProps)
+                                      ?.subCategoryName
+                                  }
+                                </Typography.Text>
+                              </Flex>
+                            </Flex>
+                            <Button
+                              type="primary"
+                              icon={<RiShoppingCartLine />}
+                            />
+                          </Flex>
+                        </Col>
+                      </Row>
+                    </Item>
+                  ),
+                )
               )}
             </List>
           </>

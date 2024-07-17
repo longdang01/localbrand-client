@@ -73,10 +73,11 @@ const OrderFinal = ({ totalPrice, submitForm, onFinish }: Props) => {
               * SỐ TÀI KHOẢN : 1030112475 * CHỦ TÀI KHOẢN : CÔNG TY TNHH MAVERIK
               STUDIO * NGÂN HÀNG VIETCOMBANK ĐỂ ĐẢM BẢO VIỆC HOÀN TẤT ĐƠN HÀNG
               NHANH CHÓNG, KHÁCH HÀNG VUI LÒNG CHUYỂN KHOẢN NHANH 24/7. - KHI
-              CHUYỂN KHOẢN BẮT BUỘC PHẢI ĐỂ NỘI DUNG CHUYỂN KHOẢN : " MÃ ĐƠN
-              HÀNG " ( Ví Dụ : 100305 ) - MỖI KHÁCH HÀNG CÓ TỐI ĐA 02 GIỜ ĐỂ
-              HOÀN TẤT VIỆC THANH TOÁN CHUYỂN KHOẢN. - CÁC ĐƠN HÀNG SAU 02 GIỜ
-              KHÔNG CHUYỂN KHOẢN SẼ BỊ HUỶ ĐƠN HÀNG MÀ KHÔNG CẦN BÁO TRƯỚC.
+              CHUYỂN KHOẢN BẮT BUỘC PHẢI ĐỂ NỘI DUNG CHUYỂN KHOẢN : &quot; MÃ
+              ĐƠN HÀNG &quot; ( Ví Dụ : 100305 ) - MỖI KHÁCH HÀNG CÓ TỐI ĐA 02
+              GIỜ ĐỂ HOÀN TẤT VIỆC THANH TOÁN CHUYỂN KHOẢN. - CÁC ĐƠN HÀNG SAU
+              02 GIỜ KHÔNG CHUYỂN KHOẢN SẼ BỊ HUỶ ĐƠN HÀNG MÀ KHÔNG CẦN BÁO
+              TRƯỚC.
             </Card>
           </Col>
         </Row>

@@ -49,7 +49,7 @@
 }
 
 .ant-dropdown-menu-submenu-title {
-  @include flex-variant(start, center, row);
+  @include flex-variant(flex-start, center, row);
   padding-inline-end: 1.2rem !important;
 
   svg {

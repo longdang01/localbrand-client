@@ -85,7 +85,7 @@ const ProductDetail = ({ path }: Props) => {
     config: {
       onSuccess: (_) => {
         // if (!variant) setCartNumber(cartNumber + 1);
-        queryClient.invalidateQueries([CACHE_CART.SEARCH])
+        queryClient.invalidateQueries([CACHE_CART.SEARCH]);
         notification.success({ message: 'Đã thêm vào giỏ hàng' });
       },
       onError: (error: any) => {
@@ -298,7 +298,7 @@ const ProductDetail = ({ path }: Props) => {
                   <Typography.Title className={styles.name}>
                     {product?.productName}
                   </Typography.Title>
-                  <Flex align="center" justify="start">
+                  <Flex align="center" justify="flex-start">
                     <Typography.Title className={styles.price}>
                       {color?.discount
                         ? color?.discount.symbol == 1

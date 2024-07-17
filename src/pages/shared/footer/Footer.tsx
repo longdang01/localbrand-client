@@ -97,7 +97,7 @@ const Footer = () => {
 
           <Divider className={styles.divider} />
 
-          <Flex align="center" justify="start" className={styles.bottom}>
+          <Flex align="center" justify="flex-start" className={styles.bottom}>
             <Link
               href={`/${locale}/${SUPPORT_PRIVACY}`}
               className={styles.item}

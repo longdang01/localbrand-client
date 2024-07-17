@@ -11,6 +11,7 @@ import AppProvider from './AppProvider';
 import AntdStyledComponentsRegistry from './AntdStyledComponentsRegistry';
 import Topbar from '@/pages/shared/topbar/Topbar';
 import { NAME } from '@/constants/config';
+import { Suspense } from 'react';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -20,7 +21,6 @@ interface RootLayoutProps {
 }
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',
@@ -41,20 +41,20 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-      {/* <Suspense fallback={<Loading />}> */}
-        <AppProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <AntdStyledComponentsRegistry>
-              <Topbar />
-              <Header />
-              <div className='main-layout'>
-                {children}
-              </div>
-              <Footer />
-            </AntdStyledComponentsRegistry>
-          </NextIntlClientProvider>
-        </AppProvider>
-      {/* </Suspense> */}
+        <Suspense
+        // fallback={<Loading />}
+        >
+          <AppProvider>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <AntdStyledComponentsRegistry>
+                <Topbar />
+                <Header />
+                <div className="main-layout">{children}</div>
+                <Footer />
+              </AntdStyledComponentsRegistry>
+            </NextIntlClientProvider>
+          </AppProvider>
+        </Suspense>
       </body>
     </html>
   );

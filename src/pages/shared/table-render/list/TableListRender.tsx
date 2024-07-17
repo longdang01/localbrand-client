@@ -2,9 +2,10 @@ import { DataType } from '@/models/table';
 import { Button, Space, Table, TableColumnsType, Typography } from 'antd';
 import classes from './table-list-render.module.scss';
 import { CloseOutlined, StarOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
+
 import { useState } from 'react';
 import TableListDetailRender from '../detail/TableListDetailRender';
+import { useMediaQuery } from '@/utils/responsive';
 
 interface Props {
   data?: any;
@@ -15,8 +16,8 @@ interface Props {
 const TYPE_SELECT = 'checkbox';
 
 const TableListRender = ({ data, columns, expandedRow }: Props) => {
-  const isSmallScreen = useMediaQuery({ maxWidth: 768 });
-  const isMediumScreen = useMediaQuery({ maxWidth: 1400 });
+  const isSmallScreen = useMediaQuery(`(max-width: 768px)`);
+  const isMediumScreen = useMediaQuery(`(max-width: 1400px)`);
 
   const [expandedRowKeys, setExpandedRowKeys] = useState<any>([]);
 
