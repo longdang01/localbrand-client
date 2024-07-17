@@ -6,16 +6,24 @@ import Image from 'next/image';
 import styles from './Introduce.module.scss';
 import { HomeOutlined } from '@ant-design/icons';
 import { useTranslations } from 'next-intl';
+import { useMediaQuery } from '@/utils/responsive';
 
 const Introduce = () => {
   const t = useTranslations('about');
+  const mobile = useMediaQuery(`(max-width: 768px)`);
+
   return (
     <>
       <div className={styles.introduceLayout}>
         <div className="layout-client">
           <Row gutter={[24, 24]} className={styles.section}>
             <Col span={24} md={8} lg={8}>
-              <Image src={logo} alt={'logo'} className={styles.logo} />
+              <Image
+                src={logo}
+                alt={'logo'}
+                className={styles.logo}
+                style={{ width: mobile ? '100%' : 400 }}
+              />
             </Col>
             <Col span={24} md={16} lg={16}>
               <div className={styles.content}>
@@ -52,7 +60,10 @@ const Introduce = () => {
 
           <Row gutter={[24, 24]} className={styles.section}>
             <Col span={24} md={8} lg={8}>
-              <div className={styles.box}>
+              <div
+                className={styles.box}
+                style={{ width: mobile ? '100%' : 400 }}
+              >
                 <div>
                   <div>
                     <Image
@@ -71,7 +82,10 @@ const Introduce = () => {
               </div>
             </Col>
             <Col span={24} md={8} lg={8}>
-              <div className={styles.box}>
+              <div
+                className={styles.box}
+                style={{ width: mobile ? '100%' : 400 }}
+              >
                 <div>
                   <div>
                     <Image
@@ -90,7 +104,10 @@ const Introduce = () => {
               </div>
             </Col>
             <Col span={24} md={8} lg={8}>
-              <div className={styles.box}>
+              <div
+                className={styles.box}
+                style={{ width: mobile ? '100%' : 400 }}
+              >
                 <div>
                   <div>
                     <Image

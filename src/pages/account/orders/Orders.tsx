@@ -35,6 +35,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import OrdersInfoModal from './components/OrdersInfoModal';
 import { queryClient } from '@/lib/react-query';
+import { useMediaQuery } from '@/utils/responsive';
 
 const { Search } = Input;
 
@@ -52,6 +53,7 @@ const Orders = () => {
   const searchData = searchParams?.get(SEARCH_DATA) || '';
   const [searchContent, setSearchContent] = useState('');
   const [status, setStatus] = useState<string>('');
+  const mobile = useMediaQuery(`(max-width: 768px)`);
 
   const handleChangeStatus = (e: string) => {
     setStatus(e);
@@ -199,11 +201,11 @@ const Orders = () => {
 
   return (
     <>
-      <div className="layout-horizontal">
+      <div className="">
         <Flex align="center" justify="space-between">
           <Select
             options={ORDERS_FILTER_STATUSES}
-            style={{ minWidth: 400 }}
+            style={{ minWidth: mobile ? 200 : 350 }}
             value={status}
             onChange={handleChangeStatus}
           />
@@ -214,7 +216,7 @@ const Orders = () => {
             value={searchContent}
             onChange={(e) => setSearchContent(e?.target?.value)}
             enterButton
-            style={{ width: 350 }}
+            style={{ width: mobile ? 200 : 350 }}
           />
         </Flex>
         <TableRender

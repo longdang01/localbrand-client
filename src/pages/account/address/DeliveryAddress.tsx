@@ -34,6 +34,7 @@ import { useGetMe } from '@/loaders/auth.loader';
 import { REGIONS } from '@/constants/region';
 import ConfirmRender from '@/pages/shared/modal/confirm/ConfirmRender';
 import EditDeliveryAddressModal from './components/EditDeliveryAddressModal';
+import { useMediaQuery } from '@/utils/responsive';
 
 const { Search } = Input;
 
@@ -49,6 +50,7 @@ const DeliveryAddress = () => {
   const pageSize = searchParams?.get(PAGE_SIZE) || '10';
   const searchData = searchParams?.get(SEARCH_DATA) || '';
   const [searchContent, setSearchContent] = useState('');
+  const mobile = useMediaQuery(`(max-width: 768px)`);
 
   useEffect(() => {
     const current = new URLSearchParams(searchParams?.toString());
@@ -205,7 +207,7 @@ const DeliveryAddress = () => {
 
   return (
     <>
-      <div className="layout-horizontal">
+      <div className="">
         <Flex align="center" justify="space-between">
           <Search
             placeholder={t('address.search_here')}
@@ -213,7 +215,7 @@ const DeliveryAddress = () => {
             value={searchContent}
             onChange={(e) => setSearchContent(e?.target?.value)}
             enterButton
-            style={{ width: 350 }}
+            style={{ width: mobile ? 200 : 300 }}
           />
           <CreateDeliveryAddressModal />
         </Flex>

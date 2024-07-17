@@ -206,7 +206,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="area">
+      <div className="">
         <Typography.Text className="account-title">
           {t('profile.title')}
         </Typography.Text>

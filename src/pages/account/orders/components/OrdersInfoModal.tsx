@@ -29,6 +29,7 @@ import {
 import Item from 'antd/es/descriptions/Item';
 import styles from '../scss/OrdersInfo.module.scss';
 import Link from 'next/link';
+import { useMediaQuery } from '@/utils/responsive';
 
 interface Props {
   code: string;
@@ -41,6 +42,7 @@ const OrdersInfoModal = ({ code }: Props) => {
   const { token } = useToken();
 
   const { open, close, isOpen } = useDisclosure();
+  const mobile = useMediaQuery(`(max-width: 768px)`);
 
   const currentOrder = useSearchOrders({
     params: {
@@ -145,18 +147,23 @@ const OrdersInfoModal = ({ code }: Props) => {
                 ).toLocaleString() + ' VND'}
               </Typography.Text>
             </Flex>
-            <Flex align="center" style={{ marginBottom: 20 }}>
+            <Flex
+              align={mobile ? 'start' : 'center'}
+              style={{ marginBottom: 20 }}
+              vertical={mobile ? true : false}
+            >
               <Flex
                 justify="space-between"
                 align="center"
                 style={{ width: 200, paddingRight: 30 }}
               >
-                <Typography.Text>
+                <Typography.Text ellipsis>
                   {t('order.fields.consignee_info')}
                 </Typography.Text>
-                <span>:</span>
+                {!mobile && <span>:</span>}
               </Flex>
               <Typography.Text>
+                (
                 {currentOrder?.data?.orders?.[0]?.deliveryAddress.consigneeName}
                 ,
                 {' ' +
@@ -187,29 +194,35 @@ const OrdersInfoModal = ({ code }: Props) => {
                                 .ward,
                               3,
                             )?.Name
-                          }`
+                          })`
                   : currentOrder?.data?.orders?.[0]?.deliveryAddress
                       .deliveryAddressName}
               </Typography.Text>
             </Flex>
-            <Flex align="center" style={{ marginBottom: 20 }}>
+            <Flex
+              align={mobile ? 'start' : 'center'}
+              style={{ marginBottom: 20 }}
+              vertical={mobile ? true : false}
+            >
               <Flex
                 justify="space-between"
                 align="center"
                 style={{ width: 200, paddingRight: 30 }}
               >
-                <Typography.Text>
+                <Typography.Text ellipsis>
                   {t('order.fields.payment_type')}
                 </Typography.Text>
-                <span>:</span>
+                {!mobile && <span>:</span>}
               </Flex>
               <Typography.Text>
+                (
                 {ORDERS_PAYMENTS.map(
                   (item, index) =>
                     currentOrder?.data?.orders?.[0]?.payment == item.value && (
                       <span key={index}>{item.label}</span>
                     ),
                 )}
+                )
               </Typography.Text>
             </Flex>
             <Flex align="center" style={{ marginBottom: 20 }}>
@@ -313,7 +326,7 @@ const OrdersInfoModal = ({ code }: Props) => {
                   (item: any, index: number) => (
                     <Item key={index}>
                       <Row gutter={[20, 20]} className={styles.item}>
-                        <Col span={3} md={3} lg={3}>
+                        <Col span={5} md={3} lg={3}>
                           <Flex align="center">
                             <img
                               src={item.color.images[0].picture}
@@ -322,7 +335,7 @@ const OrdersInfoModal = ({ code }: Props) => {
                             />
                           </Flex>
                         </Col>
-                        <Col span={21} md={21} lg={21}>
+                        <Col span={19} md={21} lg={21}>
                           <Flex
                             justify="center"
                             style={{ height: '100%' }}

@@ -56,7 +56,7 @@ const ChangePassword = () => {
 
   return (
     <>
-      <div className="area">
+      <div className="">
         <Typography.Text className="account-title">
           {t('change_password.title')}
         </Typography.Text>
