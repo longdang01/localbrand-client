@@ -5,9 +5,11 @@ import {
 } from '@/lib/react-query';
 import {
   create,
+  getBestSeller,
   getByClient,
   getById,
   getByPath,
+  getSale,
   remove,
   search,
   update,
@@ -23,6 +25,8 @@ export const CACHE_PRODUCT = {
   REMOVE: 'REMOVE',
   GET_BY_PATH: 'PRODUCT_GET_BY_PATH',
   GET_BY_CLIENT: 'PRODUCT_GET_BY_CLIENT',
+  GET_BEST_SELLER: 'PRODUCT_GET_BEST_SELLER',
+  GET_SALE: 'PRODUCT_GET_SALE',
 };
 
 export const useSearchProducts = ({
@@ -131,5 +135,29 @@ export const useRemoveProduct = ({
     onSuccess: () => {},
     ...config,
     mutationFn: (id: string) => remove(id),
+  });
+};
+
+export const useGetBestSeller = ({
+  config,
+}: {
+  config?: QueryConfig<typeof getBestSeller>;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof getBestSeller>>({
+    ...config,
+    queryKey: [CACHE_PRODUCT.GET_BEST_SELLER],
+    queryFn: () => getBestSeller(),
+  });
+};
+
+export const useGetSale = ({
+  config,
+}: {
+  config?: QueryConfig<typeof getSale>;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof getSale>>({
+    ...config,
+    queryKey: [CACHE_PRODUCT.GET_SALE],
+    queryFn: () => getSale(),
   });
 };

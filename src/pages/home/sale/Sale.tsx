@@ -1,10 +1,8 @@
 'use client';
 
-import styles from './Slide.module.scss';
-import { Flex, Typography, Image } from 'antd';
-import { useTranslations } from 'next-intl';
-import { FaFire } from 'react-icons/fa6';
-import ButtonMain from '@/pages/shared/buttons/button-main/ButtonMain';
+import styles from './Sale.module.scss';
+import { Image, Typography } from 'antd';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Navigation,
   Pagination,
@@ -17,20 +15,16 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/effect-fade';
 import 'swiper/css/effect-creative';
-import { useSearchSlides } from '@/loaders/slide.loader';
-import { MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/constants/config';
-import { SlideProps } from '@/models/slide';
+import { useGetSale } from '@/loaders/product.loader';
+import { ProductProps } from '@/models/product';
+import Link from 'next/link';
+import { PRODUCT_PATH } from '@/paths';
 
-const Slide = () => {
+const Sale = () => {
   const t = useTranslations();
+  const locale = useLocale();
 
-  const searchSlides = useSearchSlides({
-    params: {
-      pageIndex: MIN_PAGE_SIZE,
-      pageSize: MAX_PAGE_SIZE,
-      searchData: '',
-    },
-  });
+  const searchSale = useGetSale({});
 
   return (
     <>
@@ -54,28 +48,32 @@ const Slide = () => {
           effect={'fade'}
           className={styles.swiper}
         >
-          {searchSlides?.data?.slides?.map((slide: SlideProps) => (
-            <SwiperSlide key={slide?._id}>
-              <div className={`${styles.slide} ${styles.overlay}`}>
+          {searchSale?.data?.products?.map((item: ProductProps) => (
+            <SwiperSlide key={item?._id}>
+              <Link
+                href={`/${locale}/${PRODUCT_PATH}/${item?.path}`}
+                target="_blank"
+                className={`${styles.slide} ${styles.overlay}`}
+              >
                 <Image
                   className={styles.image}
-                  src={slide?.picture}
+                  src={item?.colors?.[0]?.images?.[0]?.picture}
                   alt="Slide"
                   preview={false}
                 />
-                {/* <div className={styles.content}>
-                  <Flex
+                <div className={styles.content}>
+                  {/* <Flex
                     justify="center"
                     align="center"
                     className={styles.prefix}
                   >
                     <FaFire />
                     <Typography.Text>{t('global.app')}</Typography.Text>
-                  </Flex>
+                  </Flex> */}
                   <Typography.Title className={styles.title}>
-                    {slide?.slideName || t('slide.slide_name')}
+                    SALE
                   </Typography.Title>
-                  <Flex justify="center" align="center" vertical>
+                  {/* <Flex justify="center" align="center" vertical>
                     <p
                       className={styles.description}
                       dangerouslySetInnerHTML={{
@@ -83,9 +81,9 @@ const Slide = () => {
                       }}
                     ></p>
                     <ButtonMain />
-                  </Flex>
-                </div> */}
-              </div>
+                  </Flex> */}
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -94,4 +92,4 @@ const Slide = () => {
   );
 };
 
-export default Slide;
+export default Sale;

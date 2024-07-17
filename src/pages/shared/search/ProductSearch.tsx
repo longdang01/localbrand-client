@@ -70,6 +70,7 @@ const ProductSearch = () => {
                 shape="circle"
                 icon={<SearchOutlined />}
                 className={`${styles.btnSearch} btn-search`}
+                onClick={handleOpen}
               />
             </Tooltip>
           )

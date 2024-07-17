@@ -47,7 +47,9 @@ export default async function RootLayout({
             <AntdStyledComponentsRegistry>
               <Topbar />
               <Header />
-              {children}
+              <div className='main-layout'>
+                {children}
+              </div>
               <Footer />
             </AntdStyledComponentsRegistry>
           </NextIntlClientProvider>

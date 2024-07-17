@@ -23,11 +23,11 @@ const LanguagesSwitcher = () => {
       label: t('vi'),
       icon: <VNIcon />,
     },
-    {
-      key: EN,
-      label: t('en'),
-      icon: <ENIcon />,
-    },
+    // {
+    //   key: EN,
+    //   label: t('en'),
+    //   icon: <ENIcon />,
+    // },
   ];
 
   const handleChangeLanguage = (e: ItemType) => {

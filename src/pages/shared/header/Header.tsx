@@ -132,9 +132,9 @@ const Header = () => {
               justify="space-between"
               className={styles.inner}
             >
-              <div className={styles.logo}>
+              <Link href={`/${locale}`} className={styles.logo}>
                 <Image src={logo} alt="logo" />
-              </div>
+              </Link>
 
               <Space align="center" className={styles.list}>
                 <Link href={`/${locale}`}>{t('fields.home')}</Link>

@@ -38,3 +38,13 @@ export const remove = async (id: string) => {
   const response = await apiClient?.delete(`${prefix}/${id}`);
   return response.data;
 };
+
+export const getBestSeller = async () => {
+  const response = await apiClient?.get(`${prefix}/get-best-seller`);
+  return response.data;
+};
+
+export const getSale = async () => {
+  const response = await apiClient?.get(`${prefix}/get-sale`);
+  return response.data;
+};
