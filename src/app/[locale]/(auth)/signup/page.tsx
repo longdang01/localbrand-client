@@ -1,6 +1,6 @@
 import { NAME } from '@/constants/config';
-import Signup from '@/pages/auth/signup/Signup';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import Signup from '@/components/auth/signup/Signup';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 

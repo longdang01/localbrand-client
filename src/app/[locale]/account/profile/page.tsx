@@ -1,4 +1,4 @@
-import Profile from '@/pages/account/profile/Profile';
+import Profile from '@/components/account/profile/Profile';
 import { useTranslations } from 'next-intl';
 import { NAME } from '@/constants/config';
 import { getTranslations } from 'next-intl/server';

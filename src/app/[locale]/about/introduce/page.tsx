@@ -1,11 +1,10 @@
 import { NAME } from '@/constants/config';
-import Introduce from '@/pages/about/introduce/Introduce';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import Introduce from '@/components/about/introduce/Introduce';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

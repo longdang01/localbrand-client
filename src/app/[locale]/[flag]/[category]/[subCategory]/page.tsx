@@ -1,6 +1,6 @@
 import { NAME } from '@/constants/config';
-import SubCategory from '@/pages/product/sub-category/SubCategory';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import SubCategory from '@/components/product/sub-category/SubCategory';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
@@ -13,7 +13,6 @@ interface Props {
 }
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',
@@ -24,7 +23,6 @@ export async function generateMetadata(props: { params: { locale: string } }) {
     description: `${t('shop.description')}`,
   };
 }
-
 
 export default function SubCategoryPage({ params }: Props) {
   const t = useTranslations('product');

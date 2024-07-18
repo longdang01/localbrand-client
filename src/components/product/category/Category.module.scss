@@ -1,0 +1,22 @@
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.skeleton-image {
+  display: block;
+  width: 100% !important;
+  height: 350px !important;
+}
+
+.skeleton-input {
+  display: block;
+  margin: 0.5rem 0 0;
+  width: 100% !important;
+}

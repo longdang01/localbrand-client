@@ -1,8 +1,8 @@
-import AccountSidebar from '@/pages/account/layout/sidebar/AccountSidebar';
+import AccountSidebar from '@/components/account/layout/sidebar/AccountSidebar';
 import { Col, Row } from 'antd';
-import styles from '../../../pages/account/layout/AccountLayout.module.scss';
+import styles from '../../../components/account/layout/AccountLayout.module.scss';
 import { useTranslations } from 'next-intl';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 
 export default function AccountLayout({
   children,

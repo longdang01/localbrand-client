@@ -1,5 +1,5 @@
-import Footer from '@/pages/shared/footer/Footer';
-import Header from '@/pages/shared/header/Header';
+import Footer from '@/components/shared/footer/Footer';
+import Header from '@/components/shared/header/Header';
 import '@/assets/scss/index.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,7 +9,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import AppProvider from './AppProvider';
 import AntdStyledComponentsRegistry from './AntdStyledComponentsRegistry';
-import Topbar from '@/pages/shared/topbar/Topbar';
+import Topbar from '@/components/shared/topbar/Topbar';
 import { NAME } from '@/constants/config';
 import { Suspense } from 'react';
 
@@ -20,9 +20,11 @@ interface RootLayoutProps {
   };
 }
 
-export async function generateMetadata(props: { params: { locale: string } }) {
+export async function generateMetadata({
+  params: { locale },
+}: RootLayoutProps) {
   const t = await getTranslations({
-    locale: props.params.locale,
+    locale,
     namespace: 'metadata',
   });
 
@@ -36,14 +38,12 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>
       <body>
-        <Suspense
-        // fallback={<Loading />}
-        >
+        <Suspense fallback={<div>Loading...</div>}>
           <AppProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
               <AntdStyledComponentsRegistry>

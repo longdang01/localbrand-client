@@ -1,6 +1,6 @@
 import { NAME } from '@/constants/config';
-import CollectionDetail from '@/pages/collection/components/detail/CollectionDetail';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import CollectionDetail from '@/components/collection/components/detail/CollectionDetail';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
@@ -11,7 +11,6 @@ interface Props {
 }
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

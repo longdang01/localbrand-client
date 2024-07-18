@@ -1,12 +1,16 @@
 import { NAME } from '@/constants/config';
-import Contact from '@/pages/about/contact/Contact';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import Contact from '@/components/about/contact/Contact';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
-export async function generateMetadata(props: { params: { locale: string } }) {
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const t = await getTranslations({
-    locale: props.params.locale,
+    locale,
     namespace: 'metadata',
   });
 
@@ -28,7 +32,6 @@ export default function ContactPage() {
   return (
     <>
       <BreadcrumbRender pageBreadcrumbs={CONTACT_BREADCRUMB} />
-
       <Contact />
     </>
   );

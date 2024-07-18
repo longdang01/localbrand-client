@@ -1,4 +1,4 @@
-import Usage from '@/pages/support/usage/Usage';
+import Usage from '@/components/support/usage/Usage';
 
 import { NAME } from '@/constants/config';
 import { getTranslations } from 'next-intl/server';

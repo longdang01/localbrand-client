@@ -1,6 +1,6 @@
-import BestSeller from '@/pages/home/best-seller/BestSeller';
-import Sale from '@/pages/home/sale/Sale';
-import Slide from '@/pages/home/slide/Slide';
+import BestSeller from '@/components/home/best-seller/BestSeller';
+import Sale from '@/components/home/sale/Sale';
+import Slide from '@/components/home/slide/Slide';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {

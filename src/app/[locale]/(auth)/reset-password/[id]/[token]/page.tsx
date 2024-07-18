@@ -1,11 +1,10 @@
 import { NAME } from '@/constants/config';
-import ResetPassword from '@/pages/auth/reset-password/ResetPassword';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import ResetPassword from '@/components/auth/reset-password/ResetPassword';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

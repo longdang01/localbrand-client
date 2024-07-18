@@ -1,9 +1,8 @@
-import Faq from '@/pages/support/faq/Faq';
+import Faq from '@/components/support/faq/Faq';
 import { NAME } from '@/constants/config';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

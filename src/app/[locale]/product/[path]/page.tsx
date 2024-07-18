@@ -1,5 +1,5 @@
 import { NAME } from '@/constants/config';
-import ProductDetail from '@/pages/product/detail/ProductDetail';
+import ProductDetail from '@/components/product/detail/ProductDetail';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
@@ -10,7 +10,6 @@ interface Props {
 }
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

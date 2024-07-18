@@ -1,18 +1,17 @@
 import { NAME } from '@/constants/config';
-import Category from '@/pages/product/category/Category';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import Category from '@/components/product/category/Category';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 interface Props {
   params: {
     category: string;
-    flag: string
+    flag: string;
   };
 }
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

@@ -1,10 +1,9 @@
-import DeliveryAddress from '@/pages/account/address/DeliveryAddress';
+import DeliveryAddress from '@/components/account/address/DeliveryAddress';
 import { useTranslations } from 'next-intl';
 import { NAME } from '@/constants/config';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
-  
   const t = await getTranslations({
     locale: props.params.locale,
     namespace: 'metadata',

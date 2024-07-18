@@ -1,8 +1,8 @@
-import SupportSidebar from '@/pages/support/layout/sidebar/SupportSidebar';
+import SupportSidebar from '@/components/support/layout/sidebar/SupportSidebar';
 import { Col, Row } from 'antd';
-import styles from '../../../pages/support/layout/SupportLayout.module.scss';
+import styles from '../../../components/support/layout/SupportLayout.module.scss';
 import { useTranslations } from 'next-intl';
-import BreadcrumbRender from '@/pages/shared/breadcrumb/BreadcrumbRender';
+import BreadcrumbRender from '@/components/shared/breadcrumb/BreadcrumbRender';
 
 export default function SupportLayout({
   children,
