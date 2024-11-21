@@ -12,7 +12,7 @@ import { Menu } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import styles from './SupportMenu.module.scss';
 import { usePathname, useRouter } from 'next/navigation';
-import { ItemType } from 'antd/es/menu/interface';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { FaQuestion } from 'react-icons/fa6';
 import { TiWarningOutline } from 'react-icons/ti';
 import { FaShieldAlt } from 'react-icons/fa';

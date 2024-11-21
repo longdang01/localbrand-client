@@ -8,10 +8,10 @@ import 'swiper/css/scrollbar';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import AppProvider from './AppProvider';
-import AntdStyledComponentsRegistry from './AntdStyledComponentsRegistry';
 import Topbar from '@/components/shared/topbar/Topbar';
 import { NAME } from '@/constants/config';
 import { Suspense } from 'react';
+import StyledComponentsRegistry from './AntdStyledComponentsRegistry';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -46,12 +46,12 @@ export default async function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <AppProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
-              <AntdStyledComponentsRegistry>
+              <StyledComponentsRegistry>
                 <Topbar />
                 <Header />
                 <div className="main-layout">{children}</div>
                 <Footer />
-              </AntdStyledComponentsRegistry>
+              </StyledComponentsRegistry>
             </NextIntlClientProvider>
           </AppProvider>
         </Suspense>

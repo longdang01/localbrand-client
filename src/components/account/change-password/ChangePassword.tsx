@@ -1,6 +1,8 @@
 'use client';
 
+import { ACCESS_TOKEN } from '@/constants/config';
 import { useChangePassword, useGetMe } from '@/loaders/auth.loader';
+import storage from '@/utils/storage';
 import { RULES_FORM } from '@/utils/validator';
 import {
   Button,
@@ -18,7 +20,9 @@ import { useTranslations } from 'next-intl';
 const ChangePassword = () => {
   const t = useTranslations('account');
   const [form] = useForm();
-  const currentUsers = useGetMe({});
+  const currentUsers = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
 
   const changePassword = useChangePassword({
     config: {

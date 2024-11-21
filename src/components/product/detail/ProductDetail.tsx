@@ -32,6 +32,8 @@ import {
 import { useGetMe } from '@/loaders/auth.loader';
 import { queryClient } from '@/lib/react-query';
 import { CACHE_CART } from '@/loaders/cart.loader';
+import storage from '@/utils/storage';
+import { ACCESS_TOKEN } from '@/constants/config';
 
 interface Props {
   path: string;
@@ -40,7 +42,9 @@ interface Props {
 const ProductDetail = ({ path }: Props) => {
   const t = useTranslations('product');
   const tablet = useMediaQuery(`(max-width: 992px)`);
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
 
   const swiperRef = useRef<any>(null);
 

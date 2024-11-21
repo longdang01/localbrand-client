@@ -10,10 +10,14 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import styles from './ProductBuy.module.scss';
 import TableRender from '@/components/shared/table-render/TableRender';
+import storage from '@/utils/storage';
+import { ACCESS_TOKEN } from '@/constants/config';
 
 const ProductBuy = () => {
   const t = useTranslations('cart');
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const locale = useLocale();
 
   const searchCarts = useSearchCarts({

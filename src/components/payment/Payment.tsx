@@ -13,15 +13,18 @@ import { CACHE_CART, useSearchCarts } from '@/loaders/cart.loader';
 import { CartDetailProps } from '@/models/cart-detail';
 import OrderFinal from './steps/order-final/OrderFinal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { STEP } from '@/constants/config';
+import { ACCESS_TOKEN, STEP } from '@/constants/config';
 import { useCreateClientOrder } from '@/loaders/order.loader';
 import { queryClient } from '@/lib/react-query';
 import { ACCOUNT_ORDER } from '@/paths';
+import storage from '@/utils/storage';
 
 const Payment = () => {
   const t = useTranslations('payment');
   const [current, setCurrent] = useState(0);
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();

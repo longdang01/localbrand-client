@@ -32,6 +32,8 @@ import {
 } from '@/loaders/cart-detail.loader';
 import { queryClient } from '@/lib/react-query';
 import { useRouter } from 'next/navigation';
+import { ACCESS_TOKEN } from '@/constants/config';
+import storage from '@/utils/storage';
 
 const { confirm } = Modal;
 const { useToken } = theme;
@@ -39,7 +41,9 @@ const { useToken } = theme;
 const MiniCart = () => {
   const t = useTranslations('cart');
   const [open, setOpen] = useState(false);
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const { token } = useToken();
   const locale = useLocale();
   const router = useRouter();

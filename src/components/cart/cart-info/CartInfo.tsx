@@ -36,11 +36,15 @@ import CartInfoModal from './update/CartInfoModal';
 import { FaRegStickyNote } from 'react-icons/fa';
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import storage from '@/utils/storage';
+import { ACCESS_TOKEN } from '@/constants/config';
 
 const CartInfo = () => {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const router = useRouter();
 
   const searchCarts = useSearchCarts({

@@ -7,7 +7,7 @@ import { FaAngleDown } from 'react-icons/fa';
 import styles from './LanguagesSwitcher.module.scss';
 import { ENIcon, VNIcon } from '@/assets/svg/index';
 import { LanguageSwitcherProps } from '@/models/language-switcher';
-import { ItemType } from 'antd/es/menu/interface';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 

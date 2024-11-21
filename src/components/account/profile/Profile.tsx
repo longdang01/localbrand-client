@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  ACCESS_TOKEN,
   DEFAULT_NAME_FILE_LIST,
   DEFAULT_STATUS_FILE_LIST,
   DEFAULT_UID_FILE_LIST,
@@ -40,10 +41,13 @@ import { useTranslations } from 'next-intl';
 import { checkImageExists } from '@/utils/image';
 import { queryClient } from '@/lib/react-query';
 import { uploadFile } from '@/services/upload.service';
+import storage from '@/utils/storage';
 
 const Profile = () => {
   const t = useTranslations('account');
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const [form] = useForm();
   const [isUpload, setIsUpload] = useState<boolean>(true);
   const [, setLoadingAvatar] = useState<boolean>(false);

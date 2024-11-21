@@ -1,6 +1,11 @@
 'use client';
 
-import { PAGE_INDEX, PAGE_SIZE, SEARCH_DATA } from '@/constants/config';
+import {
+  ACCESS_TOKEN,
+  PAGE_INDEX,
+  PAGE_SIZE,
+  SEARCH_DATA,
+} from '@/constants/config';
 import { queryClient } from '@/lib/react-query';
 import {
   CACHE_DELIVERY_ADDRESS,
@@ -34,6 +39,7 @@ import { useGetMe } from '@/loaders/auth.loader';
 import { REGIONS } from '@/constants/region';
 import ConfirmRender from '@/components/shared/modal/confirm/ConfirmRender';
 import EditDeliveryAddressModal from './edit/EditDeliveryAddressModal';
+import storage from '@/utils/storage';
 
 const { Search } = Input;
 
@@ -42,7 +48,9 @@ const DeliveryAddress = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
 
   const searchParams = useSearchParams();
   const pageIndex = searchParams?.get(PAGE_INDEX) || '1';

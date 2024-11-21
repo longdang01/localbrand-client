@@ -19,12 +19,12 @@ import {
 } from 'react-icons/md';
 import styles from './AccountMenu.module.scss';
 import { usePathname, useRouter } from 'next/navigation';
-import { ItemType } from 'antd/es/menu/interface';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { useLoginState } from '@/stores/user.store';
 import storage from '@/utils/storage';
 import { ACCESS_TOKEN, ROLE } from '@/constants/config';
 import useStorage from '@/utils/use-storage';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 
 const { confirm } = Modal;
 

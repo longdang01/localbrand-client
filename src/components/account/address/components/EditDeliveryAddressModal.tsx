@@ -29,6 +29,8 @@ import { useTranslations } from 'next-intl';
 import { REGIONS } from '@/constants/region';
 import { DistrictProps, WardProps } from '@/models/delivery-address';
 import { useGetMe } from '@/loaders/auth.loader';
+import { ACCESS_TOKEN } from '@/constants/config';
+import storage from '@/utils/storage';
 
 interface Props {
   id: string;
@@ -38,7 +40,9 @@ const { useToken } = theme;
 
 const EditDeliveryAddressModal = ({ id }: Props) => {
   const t = useTranslations('account');
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
   const { token } = useToken();
 
   const { open, close, isOpen } = useDisclosure();

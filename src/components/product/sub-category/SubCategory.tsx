@@ -7,7 +7,7 @@ import { convertToMenuItems, getItem } from '@/utils/generate-menu';
 import { usePathname, useRouter } from 'next/navigation';
 import { NavigationItem } from '@/models/sidebar';
 import { useLocale } from 'next-intl';
-import { ItemType } from 'antd/es/menu/interface';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import ProductCard from '@/components/shared/product/card/ProductCard';
 import { PRODUCT_PAGE_SIZE } from '@/constants/config';
 import { Fragment, useMemo, useState } from 'react';

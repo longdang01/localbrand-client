@@ -43,7 +43,7 @@ import { MdLockOutline } from 'react-icons/md';
 import { IoPower } from 'react-icons/io5';
 import storage from '@/utils/storage';
 import { useRouter } from 'next/navigation';
-import { ItemType } from 'antd/es/menu/interface';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import useStorage from '@/utils/use-storage';
 import { useLoginState } from '@/stores/user.store';
 import Link from 'next/link';

@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  ACCESS_TOKEN,
   ORDERS_FILTER_STATUSES,
   ORDERS_STATUSES,
   PAGE_INDEX,
@@ -36,6 +37,7 @@ import { useEffect, useState } from 'react';
 import OrdersInfoModal from './components/OrdersInfoModal';
 import { queryClient } from '@/lib/react-query';
 import { useMediaQuery } from '@/utils/responsive';
+import storage from '@/utils/storage';
 
 const { Search } = Input;
 
@@ -43,7 +45,9 @@ const Orders = () => {
   const t = useTranslations('account');
 
   const searchParams = useSearchParams();
-  const currentUser = useGetMe({});
+  const currentUser = useGetMe({
+    enabled: !!storage.getStorage(ACCESS_TOKEN),
+  });
 
   const router = useRouter();
   const pathname = usePathname();
